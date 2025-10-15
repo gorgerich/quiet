@@ -3,449 +3,712 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Тихая Память — организация церемонии</title>
-  <meta name="description" content="Современный агрегатор ритуальных услуг: спокойный интерфейс, прозрачный выбор, конструктор церемонии, круглосуточная поддержка.">
-  <meta name="theme-color" content="#F7F6F3">
-
+  <title>Бюро «Тихий Свет» — организация похорон</title>
+  <meta name="description" content="Современное похоронное бюро «Тихий Свет». Уважительная организация церемонии, помощь в оформлении документов и сопровождение семьи.">
   <style>
-    :root{
-      --bg:#F7F6F3;          /* молочный беж */
-      --text:#1E1E1E;        /* основной текст */
-      --accent:#2B3A55;      /* глубокий сине-серый */
-      --accent-2:#B38A58;    /* тёплое золото */
-      --card:rgba(255,255,255,.82); /* полупрозрачные карточки */
-      --border:rgba(0,0,0,.08);
-      --shadow:0 8px 24px rgba(0,0,0,.06);
-      --radius:16px;
-      --radius-sm:12px;
-    }
-    *{box-sizing:border-box}
-    body{margin:0;padding:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    a{text-decoration:none;color:var(--accent)}
-    a,button{min-height:44px}
-
-    /* Header + mobile nav */
-    header{background:rgba(255,255,255,.8);backdrop-filter:blur(8px);position:sticky;top:0;border-bottom:1px solid var(--border);z-index:20}
-    .container{max-width:1120px;margin:auto;padding:0 20px}
-    .topnav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .logo{font-weight:700;font-size:18px;color:var(--accent);letter-spacing:.3px}
-    .menu{display:flex;gap:24px;align-items:center}
-    .menu a{color:#2b2b2b}
-    .menu a:hover{color:var(--accent-2)}
-    .nav-toggle{display:none;flex-direction:column;gap:4px;background:transparent;border:1px solid var(--border);padding:8px 10px;border-radius:10px}
-    .nav-toggle span{display:block;width:20px;height:2px;background:var(--accent)}
-    @media (max-width:768px){
-      .menu{position:fixed;inset:64px 16px auto 16px;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(8px);border-radius:16px;box-shadow:var(--shadow);padding:12px;display:none;flex-direction:column;gap:8px;z-index:30}
-      .menu a{padding:12px 10px;border-radius:10px;background:rgba(255,255,255,.6)}
-      .menu.open{display:flex}
-      .nav-toggle{display:flex}
+    :root {
+      --bg: #f4f1ed;
+      --surface: #ffffffcc;
+      --text: #2e2c2c;
+      --muted: #5f5b5b;
+      --accent: #2d3a5a;
+      --accent-soft: #7c4350;
+      --highlight: #c4b29f;
+      --border: #d9d4ce;
+      --radius: 18px;
+      --shadow: 0 18px 36px rgba(34, 30, 30, 0.08);
     }
 
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:72px 0}
-    .hero h1{font-size:38px;line-height:1.2;color:var(--accent);margin:0 0 14px}
-    .hero p{margin:0 0 24px;color:#363636}
-    .hero img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
-    .btn{background:var(--accent);color:#fff;padding:14px 20px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:transform .06s ease, background .2s ease, box-shadow .2s ease}
-    .btn:hover{transform:translateY(-1px);background:var(--accent-2)}
-    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+    *, *::before, *::after { box-sizing: border-box; }
 
-    section{padding:72px 0}
-    h2{font-size:28px;color:var(--accent);margin:0 0 16px}
-    .sub{color:#535353;margin:0 0 22px}
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(124, 67, 80, 0.08), transparent 45%),
+        radial-gradient(circle at 80% 0%, rgba(45, 58, 90, 0.08), transparent 40%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
 
-    /* Cards */
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;backdrop-filter:blur(4px)}
-    .card h3{margin:0 0 8px;color:var(--accent-2)}
-    .card ul{list-style:none;margin:12px 0;padding:0}
-    .card li{margin-bottom:8px}
-    .price{font-weight:700;margin-top:10px}
+    a { color: inherit; text-decoration: none; }
 
-    /* Builder (конструктор услуг) */
-    .builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-    .builder-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
-    .svc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7)}
-    .svc small{color:#666}
-    .svc--lock{background:rgba(243,242,238,.8);border-style:dashed}
-    .svc button{padding:8px 10px;border-radius:10px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
-    .svc button:hover{transform:translateY(-1px)}
-    .total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-weight:700}
+    header {
+      background: rgba(255,255,255,0.85);
+      position: sticky;
+      top: 0;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+    }
 
-    /* Gallery */
-    .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .gallery-grid figure{margin:0;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
-    .gallery-grid img{width:100%;height:220px;object-fit:cover;display:block}
-    .gallery-grid figcaption{padding:10px 12px;color:#555;font-size:14px}
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
 
-    /* Contact */
-    .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-    form{display:grid;gap:14px}
-    label{display:grid;gap:6px}
-    input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.6);font:inherit}
-    textarea{min-height:110px}
-    .map{width:100%;height:260px;border-radius:var(--radius);background:repeating-linear-gradient(45deg,#eee,#f5f5f5 10px)}
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
 
-    footer{padding:38px 0;text-align:center;color:#666;border-top:1px solid var(--border)}
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
-    /* Animations */
-    [data-animate]{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
-    .reveal{opacity:1;transform:translateY(0)}
-    @media (prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none}}
+    .brand span:first-child {
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      font-size: 1rem;
+      color: var(--accent);
+    }
 
-    /* Mobile tweaks */
-    @media (max-width:768px){
-      .container{padding:0 16px}
-      .hero{grid-template-columns:1fr;gap:20px;padding:48px 0}
-      .hero h1{font-size:28px}
-      section{padding:56px 0}
-      h2{font-size:22px}
-      .btn{width:100%}
-      .builder-grid{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .gallery-grid{grid-template-columns:1fr}
+    .brand span:last-child {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .contact-mini {
+      display: flex;
+      gap: 16px;
+      font-size: 0.95rem;
+      color: var(--muted);
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    main section {
+      padding: clamp(48px, 9vw, 96px) 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      align-items: center;
+      padding-top: clamp(32px, 6vw, 80px);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.25;
+      color: var(--accent);
+      margin: 0 0 20px;
+    }
+
+    .hero p {
+      margin: 0 0 24px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      background: var(--accent);
+      color: #f4f1ed;
+      border-radius: 999px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 12px 24px rgba(45, 58, 90, 0.18);
+    }
+
+    .cta:hover {
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(124, 67, 80, 0.18);
+    }
+
+    .cta.is-disabled,
+    .cta.is-disabled:hover {
+      background: var(--muted);
+      box-shadow: none;
+      transform: none;
+      cursor: default;
+      opacity: 0.72;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(24px, 5vw, 36px);
+    }
+
+    @keyframes fade-up {
+      from {
+        opacity: 0;
+        transform: translate3d(0, 32px, 0);
+      }
+      to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    [data-animate].in-view {
+      opacity: 1;
+      transform: translateY(0);
+      animation: fade-up 0.8s ease both;
+    }
+
+    h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--accent);
+      margin: 0 0 16px;
+    }
+
+    .intro {
+      color: var(--muted);
+      margin: 0 0 24px;
+      max-width: 640px;
+    }
+
+    .packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .package {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      padding: 24px;
+      background: #ffffff;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 28px rgba(34, 30, 30, 0.06);
+    }
+
+    .package h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--accent-soft);
+      letter-spacing: 0.04em;
+    }
+
+    .package ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .package .note {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .price {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 1.05rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+
+    .custom-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+      align-items: start;
+    }
+
+    .base-services {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+      display: grid;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .custom-builder {
+      display: grid;
+      gap: 20px;
+    }
+
+    .addons {
+      display: grid;
+      gap: 12px;
+    }
+
+    .addon {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      transition: border 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .addon:hover,
+    .addon:focus-within {
+      border-color: var(--accent);
+      box-shadow: 0 12px 24px rgba(34, 30, 30, 0.08);
+    }
+
+    .addon.is-selected {
+      border-color: var(--accent);
+      background: rgba(45, 58, 90, 0.06);
+      box-shadow: 0 16px 30px rgba(45, 58, 90, 0.12);
+    }
+
+    .addon input[type="checkbox"] {
+      margin-top: 4px;
+      accent-color: var(--accent);
+    }
+
+    .addon-content {
+      display: grid;
+      gap: 4px;
+    }
+
+    .addon-title {
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .addon-price {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .summary {
+      padding: 18px;
+      border-radius: 16px;
+      background:
+        linear-gradient(145deg, rgba(45, 58, 90, 0.06), rgba(196, 178, 159, 0.08));
+      border: 1px solid rgba(45, 58, 90, 0.12);
+      display: grid;
+      gap: 12px;
+    }
+
+    .summary ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .summary button {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font: inherit;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .summary button:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: grid;
+      gap: 16px;
+    }
+
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    input, textarea {
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.9);
+      font: inherit;
+      color: var(--text);
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .map {
+      width: 100%;
+      height: 280px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(135deg, rgba(44,54,73,0.08) 0%, rgba(145,117,108,0.12) 100%),
+        repeating-linear-gradient(90deg, #ece7df 0, #ece7df 12px, #e2ddd5 12px, #e2ddd5 24px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 20px;
+    }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar { flex-direction: column; gap: 12px; }
+      .contact-mini { justify-content: center; }
+      .hero { text-align: center; }
+      .hero p { margin-inline: auto; }
+      .cta { width: 100%; }
+      .summary { text-align: left; }
     }
   </style>
 </head>
 <body>
-  <!-- Header with mobile burger -->
   <header>
-    <div class="container">
-      <nav class="topnav">
-        <div class="logo">Тихая Память</div>
-
-        <button class="nav-toggle" aria-expanded="false" aria-label="Открыть меню">
-          <span></span><span></span><span></span>
-        </button>
-
-        <div class="menu" id="menu">
-          <a href="#home">Главная</a>
-          <a href="#about">О нас</a>
-          <a href="#why">Почему мы</a>
-          <a href="#how">Как это работает</a>
-          <a href="#packages">Пакеты</a>
-          <a href="#builder">Собрать услуги</a>
-          <a href="#gallery">Галерея</a>
-          <a href="#contact">Контакты</a>
-        </div>
-      </nav>
+    <div class="container topbar">
+      <div class="brand">
+        <span>Бюро «Тихий Свет»</span>
+        <span>Сдержанная поддержка и точная организация</span>
+      </div>
+      <div class="contact-mini">
+        <span>+7 (495) 000-00-00</span>
+        <span>г. Москва, ул. Невская, 12</span>
+      </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <main id="home" class="container hero" data-animate>
-    <div>
-      <h1 id="heroTitle">Организация церемонии с уважением и покоем</h1>
-      <p id="heroText">Мы создаём пространство, где всё проходит спокойно, точно и без лишних разговоров. Агрегатор «Тихая Память» объединяет надёжные ритуальные бюро, помогая организовать церемонию с достоинством и прозрачностью.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a class="btn" href="#builder">Собрать организацию</a>
-        <a class="btn btn-outline" href="#packages">Смотреть пакеты</a>
+  <main>
+    <section class="container hero">
+      <div data-animate>
+        <h1 class="hero-title">Уважительная организация церемонии прощания</h1>
+        <p>Команда бюро «Тихий Свет» сопровождает семью от первой консультации до завершения церемонии. Мы берём на себя документы, логистику и подготовку пространства, оставляя близким время для спокойного прощания.</p>
+        <a class="cta" href="#request">Заказать организацию похорон</a>
       </div>
-    </div>
-    <img id="heroImage"
-         src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
-         srcset="
-           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=480&auto=format&fit=crop 480w,
-           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop 800w,
-           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop 1200w
-         "
-         sizes="(max-width: 768px) 100vw, 480px"
-         alt="Светлая фактура ткани" loading="lazy">
-  </main>
-
-  <!-- About -->
-  <section id="about" data-animate>
-    <div class="container">
-      <h2>Новая культура прощания</h2>
-      <p class="sub">«Тихая Память» — современный подход к ритуальным услугам. Мы убираем хаос и неясность, сохраняя главное — уважение к человеку и его жизни.</p>
-      <p>Всё необходимое для организации церемонии — в одном месте: оформление документов, транспорт, зал прощания, атрибутика, сопровождение. Мы не продаём — мы сопровождаем. Каждый шаг понятен и прозрачен, каждая деталь продумана, чтобы дать время на главное — прощание и покой.</p>
-    </div>
-  </section>
-
-  <!-- Why -->
-  <section id="why" data-animate>
-    <div class="container">
-      <h2>Прозрачный сервис. Без спешки. Без давления.</h2>
-      <p class="sub">Всё, что нужно — в одном месте.</p>
-      <div class="cards">
-        <div class="card"><h3>Проверенные агентства</h3><p>Партнёры проходят отбор. Мы отвечаем за качество и спокойствие услуг.</p></div>
-        <div class="card"><h3>Понятные цены</h3><p>Фиксированные пакеты и открытый калькулятор без скрытых доплат.</p></div>
-        <div class="card"><h3>Удобный конструктор</h3><p>Соберите только то, что нужно. Система сразу покажет итог.</p></div>
-        <div class="card"><h3>Поддержка 24/7</h3><p>Мы всегда на связи и готовы помочь, когда это важно.</p></div>
+      <div class="panel" data-animate>
+        <h2>Кратко о нас</h2>
+        <p class="intro">Работаем круглосуточно, придерживаемся прозрачных договорённостей и уважительного общения. Каждая церемония строится вокруг пожеланий семьи и традиций.</p>
+        <ul style="margin:0;padding-left:18px;color:var(--muted);display:grid;gap:8px;font-size:0.95rem;">
+          <li>Документы и взаимодействие с органами</li>
+          <li>Транспортировка и подготовка зала</li>
+          <li>Атрибутика, соответствующая выбранному формату</li>
+          <li>Сопровождение координатора на протяжении всей церемонии</li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- How -->
-  <section id="how" data-animate>
-    <div class="container">
-      <h2>Всё просто и спокойно</h2>
-      <p class="sub">Четыре шага — и всё под контролем.</p>
-      <div class="cards">
-        <div class="card"><h3>1. Выберите формат</h3><p>Пакет услуг или индивидуальный набор — по ситуации и предпочтениям.</p></div>
-        <div class="card"><h3>2. Укажите пожелания</h3><p>Время, место, детали церемонии фиксируются заранее.</p></div>
-        <div class="card"><h3>3. Мы координируем остальное</h3><p>Документы, транспорт, зал, атрибутика — без перегрузки вас деталями.</p></div>
-        <div class="card"><h3>4. Вы отдыхаете от забот</h3><p>Процесс прозрачен и спокоен, каждая деталь выполняется по плану.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Packages -->
-  <section id="packages" data-animate>
-    <div class="container">
+    <section class="container" id="packages" data-animate>
       <h2>Пакеты услуг</h2>
-      <p class="sub">Отличия — в уровне атрибутики, логистике и времени аренды.</p>
-      <div class="cards">
-        <div class="card">
+      <p class="intro">Каждый пакет включает сопровождение координатора и организацию церемонии. Отличия заключаются в уровне атрибутики, дополнительных услугах и времени подготовки.</p>
+      <div class="packages">
+        <article class="package">
           <h3>Эконом</h3>
           <ul>
-            <li>Оформление документов</li>
-            <li>Катафалк стандартного класса (1 рейс)</li>
-            <li>Зал прощания 30 мин</li>
-            <li>Гроб шпон, покрывало</li>
+            <li>Оформление свидетельства и необходимых справок</li>
+            <li>Базовый транспорт (микроавтобус)</li>
+            <li>Зал прощания до 1 часа</li>
+            <li>Гроб из шпоновой древесины, простое покрывало</li>
+            <li>Комплект венков (2 шт.) и свечи</li>
+            <li>Координация церемонии и перенос атрибутики</li>
           </ul>
-          <p class="price">от ___ ₽</p>
-        </div>
-        <div class="card">
+          <p class="note">Атрибутика в спокойных тонах, без дополнительного оформления. Подходит для камерного прощания в узком кругу.</p>
+          <span class="price">от ___ ₽</span>
+        </article>
+        <article class="package">
           <h3>Стандарт</h3>
           <ul>
-            <li>Курьерское оформление документов</li>
-            <li>Транспорт комфорт-класса (до 2 рейсов)</li>
-            <li>Зал прощания 60 мин</li>
-            <li>Улучшенный текстиль, до 2 венков</li>
+            <li>Полный пакет документов и сопровождение в морг</li>
+            <li>Транспорт кортежем (автобус для близких + катафалк)</li>
+            <li>Зал прощания до 2 часов с музыкальным сопровождением</li>
+            <li>Гроб из массива с текстильной отделкой, покрывало из атласа</li>
+            <li>Венки (4 шт.), композиции из живых цветов, свечи</li>
+            <li>Организация церемонии и речь ведущего по запросу</li>
           </ul>
-          <p class="price">от ___ ₽</p>
-        </div>
-        <div class="card">
+          <p class="note">Расширенный набор атрибутики и дополнительное время для прощания. Предусмотрены элементы персонализации и поддержка гостей.</p>
+          <span class="price">от ___ ₽</span>
+        </article>
+        <article class="package">
           <h3>Премиум</h3>
           <ul>
-            <li>Полный цикл с представителем</li>
-            <li>Катафалк бизнес-класса + микроавтобус</li>
-            <li>Зал прощания 90 мин, декор</li>
-            <li>Живые цветы, фото/видео по согласованию</li>
+            <li>Персональный координатор 24/7 и юридическая поддержка</li>
+            <li>Индивидуальный маршрут с почётным сопровождением</li>
+            <li>Зал прощания до 4 часов, декор с использованием тканей и света</li>
+            <li>Гроб из ценных пород дерева, шёлковая отделка, комплект текстиля</li>
+            <li>Венки и композиции (6+ шт.), памятная фотозона</li>
+            <li>Оркестровое или хоровое сопровождение, организация поминального обеда</li>
           </ul>
-          <p class="price">от ___ ₽</p>
-        </div>
+          <p class="note">Максимальный уровень внимания к деталям, расширенный набор атрибутики и индивидуальный сценарий церемонии.</p>
+          <span class="price">от ___ ₽</span>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Builder -->
-  <section id="builder" data-animate>
-    <div class="container">
-      <h2>Соберите услуги сами</h2>
-      <p class="sub">В основе — базовый набор, достаточный для организации похорон. Добавляйте опции и сразу видьте ориентировочную сумму.</p>
-      <div class="builder-grid">
-        <div class="builder-card" aria-label="Ваш набор">
-          <h3 style="margin-top:0;color:var(--accent-2)">Ваш набор</h3>
-          <div id="selectedList" class="list" aria-live="polite"></div>
-          <div class="total"><span>Итого</span> <span><span id="totalPrice">0</span> ₽</span></div>
-          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
-            <button class="btn" id="submitBuilder" type="button">Отправить заявку с этим набором</button>
-            <button class="btn btn-outline" id="resetBuilder" type="button">Сбросить опции</button>
+    <section class="container" id="custom" data-animate>
+      <h2>Соберите услуги под ваши задачи</h2>
+      <p class="intro">Для тех, кто хочет добавить к базовому пакету только нужные опции. Мы берём на себя минимально необходимый набор действий, а дополнительные услуги вы выбираете самостоятельно.</p>
+      <div class="custom-grid">
+        <div class="panel" style="display:grid;gap:16px;">
+          <h3>Базовый минимум</h3>
+          <p style="margin:0;color:var(--muted);">Включает услуги, без которых проведение церемонии невозможно. Этот блок всегда остаётся в заказе.</p>
+          <ul class="base-services">
+            <li>Оформление свидетельства о смерти и справок</li>
+            <li>Транспортировка тела в морг и к месту прощания</li>
+            <li>Гроб из шпоновой древесины с базовым текстилем</li>
+            <li>Подготовка зала прощания до 1 часа</li>
+            <li>Координатор церемонии и перенос атрибутики</li>
+          </ul>
+          <p style="margin:0;font-weight:600;color:var(--accent);">Стоимость базового пакета: от 48 000 ₽</p>
+        </div>
+        <div class="panel custom-builder">
+          <h3>Добавьте необходимые услуги</h3>
+          <p style="margin:0;color:var(--muted);">Отметьте дополнительные опции. Мы рассчитаем ориентировочную стоимость и подготовим предложение.</p>
+          <form class="addons" id="addons">
+            <label class="addon">
+              <input type="checkbox" data-id="decor" data-name="Расширенный декор зала" data-price="12000">
+              <span class="addon-content">
+                <span class="addon-title">Расширенный декор зала</span>
+                <span>Ткани, свечи и композиции в выбранной цветовой гамме.</span>
+                <span class="addon-price">+ 12 000 ₽</span>
+              </span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" data-id="music" data-name="Музыкальное сопровождение" data-price="9000">
+              <span class="addon-content">
+                <span class="addon-title">Музыкальное сопровождение</span>
+                <span>Живой квартет или подбор фоновой музыки с техникой.</span>
+                <span class="addon-price">+ 9 000 ₽</span>
+              </span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" data-id="transport" data-name="Кортеж для гостей" data-price="15000">
+              <span class="addon-content">
+                <span class="addon-title">Кортеж для гостей</span>
+                <span>Автобус и катафалк для сопровождения процессии.</span>
+                <span class="addon-price">+ 15 000 ₽</span>
+              </span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" data-id="memory" data-name="Поминальный зал" data-price="11000">
+              <span class="addon-content">
+                <span class="addon-title">Поминальный зал</span>
+                <span>Подготовка и обслуживание помещения для поминального обеда.</span>
+                <span class="addon-price">+ 11 000 ₽</span>
+              </span>
+            </label>
+            <label class="addon">
+              <input type="checkbox" data-id="support" data-name="Юридическое сопровождение" data-price="8000">
+              <span class="addon-content">
+                <span class="addon-title">Юридическое сопровождение</span>
+                <span>Помощь с получением пособий, льгот и согласованием документов.</span>
+                <span class="addon-price">+ 8 000 ₽</span>
+              </span>
+            </label>
+          </form>
+          <div class="summary" aria-live="polite">
+            <div>
+              <strong>Выбранные дополнения</strong>
+              <ul id="selected-addons" aria-live="polite">
+                <li>Дополнительные услуги пока не выбраны.</li>
+              </ul>
+            </div>
+            <div>
+              <strong>Итоговая стоимость</strong>
+              <p style="margin:4px 0 0;color:var(--accent);font-weight:600;" id="total">от 48 000 ₽</p>
+            </div>
+            <p id="selection-feedback" role="status" aria-live="polite" style="margin:0;color:var(--muted);font-size:0.9rem;min-height:1.4em;"></p>
+            <button type="button" class="cta" style="justify-content:center;" id="send-selection">Отправить запрос с выбранными услугами</button>
           </div>
-          <p class="sub" style="margin-top:8px">Базовые позиции обязательны и не удаляются. Цены примерные — замените на фактические.</p>
-        </div>
-        <div class="builder-card" aria-label="Доступные опции">
-          <h3 style="margin-top:0;color:var(--accent-2)">Добавить опции</h3>
-          <div id="availableList" class="list"></div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Gallery -->
-  <section id="gallery" data-animate>
-    <div class="container">
-      <h2>Галерея</h2>
-      <p class="sub">Свет, пространство и порядок — без лишних деталей.</p>
-      <div class="gallery-grid">
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Мягкий дневной свет через окно">
-          <figcaption>Мягкий дневной свет</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Чистая белая ткань крупным планом">
-          <figcaption>Белая ткань</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Спокойная архитектура и природный камень">
-          <figcaption>Спокойная архитектура</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Цветы в нейтральной гамме">
-          <figcaption>Нейтральные цветы</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Свечи и мягкий свет">
-          <figcaption>Свет свечей</figcaption>
-        </figure>
-        <figure>
-          <img loading="lazy" src="https://images.unsplash.com/photo-1477322524744-0eece9e79640?q=80&w=1200&auto=format&fit=crop" alt="Пустой зал со сдержанной отделкой">
-          <figcaption>Спокойный зал</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" data-animate>
-    <div class="container">
-      <h2>Контакты</h2>
-      <div class="contact">
-        <div class="card" aria-label="Контактная информация">
-          <p><strong>Телефон:</strong> <a id="contactPhone" href="tel:+78000000000">8 800 000-00-00</a></p>
-          <p><strong>Email:</strong> <a id="contactEmail" href="mailto:info@tikhayapamyat.ru">info@tikhayapamyat.ru</a></p>
-          <p><strong>Адрес:</strong> <span id="contactAddress">Москва, ул. Светлая, д. 10</span></p>
-          <div class="map" role="img" aria-label="Карта"></div>
-          <p class="sub">По запросу возможен выезд специалиста.</p>
+    <section class="container" id="request" data-animate>
+      <h2>Контакты и обратная связь</h2>
+      <p class="intro">Мы на связи круглосуточно. Оставьте заявку или позвоните, чтобы обсудить организацию церемонии и необходимые документы.</p>
+      <div class="contact-grid">
+        <div class="panel" style="gap:18px;display:flex;flex-direction:column;">
+          <div>
+            <strong>Телефон:</strong>
+            <p style="margin:4px 0 0;color:var(--muted);">+7 (495) 000-00-00</p>
+          </div>
+          <div>
+            <strong>Адрес офиса:</strong>
+            <p style="margin:4px 0 0;color:var(--muted);">г. Москва, ул. Невская, 12</p>
+          </div>
+          <div>
+            <strong>Электронная почта:</strong>
+            <p style="margin:4px 0 0;color:var(--muted);">care@tikhy-svet.ru</p>
+          </div>
+          <div class="map">Интерактивная карта появится на этой позиции по подключении сервиса карт.</div>
         </div>
-        <form class="card" id="leadForm" action="#">
-          <label>Имя<input id="name" name="name" type="text" placeholder="Ваше имя" required></label>
-          <label>Телефон<input id="phone" name="phone" type="tel" placeholder="+7 ___ ___-__-__" required></label>
-          <label>Пакет<select id="pkg" name="package">
-            <option value="economy">Эконом</option>
-            <option value="standard">Стандарт</option>
-            <option value="premium">Премиум</option>
-          </select></label>
-          <label>Комментарий<textarea id="msg" name="message" placeholder="Кратко опишите запрос"></textarea></label>
-          <button class="btn" type="submit">Отправить заявку</button>
-          <p class="sub">Отправляя форму, вы соглашаетесь на обработку персональных данных для связи по вашему запросу.</p>
+        <form class="panel">
+          <label>
+            Имя
+            <input type="text" name="name" placeholder="Ваше имя">
+          </label>
+          <label>
+            Телефон
+            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__">
+          </label>
+          <label>
+            Электронная почта
+            <input type="email" name="email" placeholder="example@mail.ru">
+          </label>
+          <label>
+            Комментарий
+            <textarea name="message" placeholder="Кратко опишите пожелания или вопросы"></textarea>
+          </label>
+          <button type="submit" class="cta" style="width:100%;">Отправить заявку</button>
         </form>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
-    © <span id="y"></span> Тихая Память — агрегатор ритуальных услуг
+    © 2024 Бюро «Тихий Свет». Все права соблюдены.
   </footer>
 
   <script>
-    // Год в футере
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const animatedElements = document.querySelectorAll('[data-animate]');
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries, currentObserver) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            currentObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
 
-    // Анимации при прокрутке
-    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target);} });
-    },{threshold:.12}) : null;
-    document.querySelectorAll('[data-animate]').forEach(el=>{ if(io) io.observe(el); else el.classList.add('reveal'); });
-
-    // Бургер-меню
-    const toggle = document.querySelector('.nav-toggle');
-    const menu = document.getElementById('menu');
-    if(toggle && menu){
-      toggle.addEventListener('click', ()=>{
-        const opened = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      animatedElements.forEach((element) => {
+        observer.observe(element);
       });
-      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
-        menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
-      }));
+    } else {
+      animatedElements.forEach((element) => {
+        element.classList.add('in-view');
+      });
     }
 
-    // Конструктор услуг
-    const currency = new Intl.NumberFormat('ru-RU');
-    const baseItems = [
-      {id:'docs_base',  name:'Оформление документов (базовый комплект)', price:12000, locked:true},
-      {id:'hearse_std', name:'Катафалк стандартного класса — 1 рейс',   price:8000,  locked:true},
-      {id:'hall_30',    name:'Зал прощания до 30 минут',                 price:7000,  locked:true},
-      {id:'coffin_basic',name:'Гроб шпон, покрывало',                    price:15000, locked:true}
-    ];
-    const options = [
-      {id:'hearse_extra', name:'Дополнительный рейс катафалка', price:5000},
-      {id:'minibus',      name:'Микроавтобус для близких',      price:6000},
-      {id:'wreath1',      name:'Венок искусственный с лентой',  price:3500},
-      {id:'wreath_live',  name:'Композиция из живых цветов',    price:9000},
-      {id:'textiles_plus',name:'Текстиль расширенный комплект', price:4000},
-      {id:'hall_plus30',  name:'Продление зала ещё на 30 минут',price:4000},
-      {id:'music_bg',     name:'Фоновое звукооформление',       price:2000},
-      {id:'host_coord',   name:'Координатор/ведущий церемонии', price:8000},
-      {id:'photo',        name:'Фото/видео сопровождение',      price:12000},
-      {id:'urn_premium',  name:'Урна керамическая/деревянная',  price:6000}
-    ];
-    const selected = new Set();
+    const basePrice = 48000;
+    const addonInputs = Array.from(document.querySelectorAll('#addons input[type="checkbox"]'));
+    const selectedList = document.getElementById('selected-addons');
+    const totalLabel = document.getElementById('total');
+    const selectionButton = document.getElementById('send-selection');
+    const feedback = document.getElementById('selection-feedback');
+    let feedbackTimer;
 
-    function renderSelected(){
-      const box = document.getElementById('selectedList');
-      box.innerHTML='';
-      [...baseItems, ...options.filter(o=>selected.has(o.id))].forEach(item=>{
-        const row = document.createElement('div');
-        row.className='svc ' + (item.locked?'svc--lock':'');
-        const meta = document.createElement('div');
-        meta.innerHTML = '<span>'+item.name+'</span> <small>'+currency.format(item.price)+' ₽</small>';
-        row.appendChild(meta);
-        const btn = document.createElement('button');
-        if(item.locked){
-          btn.textContent='Включено'; btn.disabled=true;
-          btn.style.borderColor='var(--border)'; btn.style.color='#777';
-        }else{
-          btn.textContent='Убрать';
-          btn.addEventListener('click', ()=>{ selected.delete(item.id); renderSelected(); renderAvailable(); updateTotal(); });
+    if (addonInputs.length && selectedList && totalLabel && selectionButton && feedback) {
+      const formatPrice = (value) => {
+        try {
+          return new Intl.NumberFormat('ru-RU').format(value);
+        } catch (error) {
+          return value.toString();
         }
-        row.appendChild(btn);
-        box.appendChild(row);
+      };
+
+      const syncAddonState = () => {
+        addonInputs.forEach((input) => {
+          const addon = input.closest('.addon');
+          if (addon) {
+            addon.classList.toggle('is-selected', input.checked);
+          }
+        });
+      };
+
+      const updateSummary = () => {
+        const selected = addonInputs.filter((input) => input.checked);
+
+        if (selected.length === 0) {
+          selectedList.innerHTML = '<li>Дополнительные услуги пока не выбраны.</li>';
+        } else {
+          selectedList.innerHTML = selected.map((input) => {
+            const name = input.dataset.name;
+            const price = Number(input.dataset.price);
+            return `<li>${name} — + ${formatPrice(price)} ₽ <button type="button" data-remove="${input.dataset.id}">Убрать</button></li>`;
+          }).join('');
+        }
+
+        const total = selected.reduce((sum, input) => sum + Number(input.dataset.price), basePrice);
+        totalLabel.textContent = `от ${formatPrice(total)} ₽`;
+        syncAddonState();
+      };
+
+      addonInputs.forEach((input) => {
+        input.addEventListener('change', updateSummary);
       });
-    }
 
-    function renderAvailable(){
-      const box = document.getElementById('availableList');
-      box.innerHTML='';
-      options.forEach(opt=>{
-        if(selected.has(opt.id)) return;
-        const row = document.createElement('div');
-        row.className='svc';
-        const meta = document.createElement('div');
-        meta.innerHTML = '<span>'+opt.name+'</span> <small>'+currency.format(opt.price)+' ₽</small>';
-        row.appendChild(meta);
-        const btn = document.createElement('button');
-        btn.textContent='Добавить';
-        btn.addEventListener('click', ()=>{ selected.add(opt.id); renderSelected(); renderAvailable(); updateTotal(); });
-        row.appendChild(btn);
-        box.appendChild(row);
+      selectedList.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.matches('[data-remove]')) {
+          const id = target.dataset.remove;
+          const checkbox = addonInputs.find((input) => input.dataset.id === id);
+          if (checkbox) {
+            checkbox.checked = false;
+            updateSummary();
+          }
+        }
       });
+
+      selectionButton.addEventListener('click', () => {
+        const selected = addonInputs.filter((input) => input.checked).map((input) => input.dataset.name);
+        const message = selected.length
+          ? `Вы выбрали: ${selected.join(', ')}. Наш координатор свяжется с вами для уточнения деталей.`
+          : 'Дополнительные услуги не выбраны. Базовый пакет остаётся без изменений.';
+        feedback.textContent = message;
+        selectionButton.disabled = true;
+        selectionButton.classList.add('is-disabled');
+        if (feedbackTimer) {
+          clearTimeout(feedbackTimer);
+        }
+        feedbackTimer = setTimeout(() => {
+          feedback.textContent = '';
+          selectionButton.disabled = false;
+          selectionButton.classList.remove('is-disabled');
+        }, 2500);
+      });
+
+      updateSummary();
     }
-
-    function updateTotal(){
-      const baseSum = baseItems.reduce((s,i)=>s+i.price,0);
-      const optSum  = options.filter(o=>selected.has(o.id)).reduce((s,i)=>s+i.price,0);
-      document.getElementById('totalPrice').textContent = currency.format(baseSum + optSum);
-    }
-
-    document.getElementById('resetBuilder').addEventListener('click', ()=>{
-      selected.clear(); renderSelected(); renderAvailable(); updateTotal();
-    });
-
-    document.getElementById('submitBuilder').addEventListener('click', ()=>{
-      const textarea = document.getElementById('msg');
-      if(textarea){
-        const base = baseItems.map(i=>'• '+i.name+' — '+currency.format(i.price)+' ₽').join('\n');
-        const opt  = options.filter(o=>selected.has(o.id)).map(i=>'• '+i.name+' — '+currency.format(i.price)+' ₽').join('\n');
-        textarea.value = 'Прошу рассчитать стоимость по конструктору.\n\nБазовый набор:\n'+base+'\n\nОпции:\n'+(opt || 'без доп. опций')+'\n\nИтого по конструктору: '+document.getElementById('totalPrice').textContent+' ₽';
-        location.hash = '#contact';
-        textarea.focus();
-      }
-    });
-
-    // Первичная отрисовка конструктора
-    renderSelected(); renderAvailable(); updateTotal();
-
-    // (Необяз.) Простейшая отправка формы без сервера — просто алерт
-    document.getElementById('leadForm').addEventListener('submit', (e)=>{
-      e.preventDefault();
-      alert('Заявка отправлена (демо). Подключите Formspree/Telegram или серверless-эндпоинт для реальной отправки.');
-    });
-
-    // Мини-тесты в консоли
-    try{
-      const expectedBase = 12000+8000+7000+15000; // 42000
-      console.assert(baseItems.reduce((s,i)=>s+i.price,0)===expectedBase,'Сумма базовых позиций неверна');
-      const before = document.getElementById('totalPrice').textContent; selected.add('wreath1'); updateTotal(); const after = document.getElementById('totalPrice').textContent;
-      console.assert(before!==after,'Итог не меняется после добавления');
-      console.assert(/\d/.test(new Intl.NumberFormat('ru-RU').format(1000)),'Формат валюты не работает');
-      selected.delete('wreath1'); updateTotal();
-      console.info('Тесты конструктора: OK');
-    }catch(e){ console.warn('Тесты конструктора: ошибка', e); }
   </script>
 </body>
 </html>
-
