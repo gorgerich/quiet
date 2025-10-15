@@ -3,93 +3,128 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Тихая Память — современная организация церемонии</title>
-  <meta name="description" content="Современный агрегатор ритуальных услуг. Спокойная эстетика, прозрачные условия, уважение к каждому человеку.">
-  <meta name="theme-color" content="#EFE8E2">
+  <title>Тихая Память — организация церемонии</title>
+  <meta name="description" content="Современный агрегатор ритуальных услуг: спокойный интерфейс, прозрачный выбор, конструктор церемонии, круглосуточная поддержка.">
+  <meta name="theme-color" content="#F7F6F3">
 
   <style>
-    :root {
-      --fig-purple: #5C3A4C;
-      --olive-sage: #7C8C6A;
-      --dusty-mauve: #A17D84;
-      --warm-beige: #CBB7A2;
-      --terracotta-clay: #9C5B4C;
-      --deep-plum: #3E2636;
-      --soft-cream: #EFE8E2;
-      --medium-gold: #C79D62;
-
-      /* Маппинг на текущую тему */
-      --bg: var(--soft-cream);
-      --text: var(--deep-plum);
-      --accent: var(--fig-purple);
-      --accent-2: var(--medium-gold);
-      --card: rgba(255,255,255,0.9);
-      --border: rgba(62,38,54,0.12);
-      --shadow: 0 8px 24px rgba(62,38,54,0.08);
-      --radius: 16px;
+    :root{
+      --bg:#F7F6F3;          /* молочный беж */
+      --text:#1E1E1E;        /* основной текст */
+      --accent:#2B3A55;      /* глубокий сине-серый */
+      --accent-2:#B38A58;    /* тёплое золото */
+      --card:rgba(255,255,255,.82); /* полупрозрачные карточки */
+      --border:rgba(0,0,0,.08);
+      --shadow:0 8px 24px rgba(0,0,0,.06);
+      --radius:16px;
+      --radius-sm:12px;
     }
-    body{margin:0;padding:0;font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
     a{text-decoration:none;color:var(--accent)}
-    a:hover{color:var(--medium-gold)}
-    header{background:rgba(239,232,226,0.9);backdrop-filter:blur(8px);position:sticky;top:0;border-bottom:1px solid var(--border);z-index:20;}
+    a,button{min-height:44px}
+
+    /* Header + mobile nav */
+    header{background:rgba(255,255,255,.8);backdrop-filter:blur(8px);position:sticky;top:0;border-bottom:1px solid var(--border);z-index:20}
     .container{max-width:1120px;margin:auto;padding:0 20px}
     .topnav{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
-    .logo{font-weight:700;font-size:18px;color:var(--accent)}
+    .logo{font-weight:700;font-size:18px;color:var(--accent);letter-spacing:.3px}
     .menu{display:flex;gap:24px;align-items:center}
-    .menu a{color:var(--deep-plum)}
-    .menu a:hover{color:var(--medium-gold)}
+    .menu a{color:#2b2b2b}
+    .menu a:hover{color:var(--accent-2)}
     .nav-toggle{display:none;flex-direction:column;gap:4px;background:transparent;border:1px solid var(--border);padding:8px 10px;border-radius:10px}
     .nav-toggle span{display:block;width:20px;height:2px;background:var(--accent)}
     @media (max-width:768px){
-      .menu{position:fixed;inset:64px 16px auto 16px;background:var(--card);border:1px solid var(--border);
-        border-radius:16px;box-shadow:var(--shadow);padding:12px;display:none;flex-direction:column;gap:8px;z-index:30}
+      .menu{position:fixed;inset:64px 16px auto 16px;background:var(--card);border:1px solid var(--border);backdrop-filter:blur(8px);border-radius:16px;box-shadow:var(--shadow);padding:12px;display:none;flex-direction:column;gap:8px;z-index:30}
       .menu a{padding:12px 10px;border-radius:10px;background:rgba(255,255,255,.6)}
       .menu.open{display:flex}
       .nav-toggle{display:flex}
     }
 
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;padding:72px 0;}
-    .hero h1{font-size:38px;color:var(--accent);margin:0 0 14px}
-    .hero p{margin:0 0 24px;color:var(--text)}
+    /* Hero */
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:72px 0}
+    .hero h1{font-size:38px;line-height:1.2;color:var(--accent);margin:0 0 14px}
+    .hero p{margin:0 0 24px;color:#363636}
     .hero img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+    .btn{background:var(--accent);color:#fff;padding:14px 20px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:transform .06s ease, background .2s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-1px);background:var(--accent-2)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent)}
 
-    .btn{background:var(--olive-sage);color:var(--soft-cream);padding:14px 22px;border:none;border-radius:12px;
-      font-weight:600;cursor:pointer;transition:background .2s ease,transform .1s ease;}
-    .btn:hover{background:var(--medium-gold);transform:translateY(-1px)}
-    .btn-outline{background:transparent;color:var(--olive-sage);border:1px solid var(--olive-sage)}
-    .btn-outline:hover{background:var(--medium-gold);color:var(--soft-cream);border-color:var(--medium-gold)}
+    section{padding:72px 0}
+    h2{font-size:28px;color:var(--accent);margin:0 0 16px}
+    .sub{color:#535353;margin:0 0 22px}
 
-    section{padding:72px 0;}
-    h2{font-size:28px;color:var(--accent);margin-bottom:16px}
-    .sub{color:var(--dusty-mauve);margin-bottom:20px}
+    /* Cards */
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;backdrop-filter:blur(4px)}
+    .card h3{margin:0 0 8px;color:var(--accent-2)}
+    .card ul{list-style:none;margin:12px 0;padding:0}
+    .card li{margin-bottom:8px}
+    .price{font-weight:700;margin-top:10px}
 
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
-    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px}
-    .card h3{margin-top:0;color:var(--medium-gold)}
+    /* Builder (конструктор услуг) */
+    .builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .builder-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .svc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7)}
+    .svc small{color:#666}
+    .svc--lock{background:rgba(243,242,238,.8);border-style:dashed}
+    .svc button{padding:8px 10px;border-radius:10px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+    .svc button:hover{transform:translateY(-1px)}
+    .total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-weight:700}
 
+    /* Gallery */
     .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
     .gallery-grid figure{margin:0;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);overflow:hidden}
     .gallery-grid img{width:100%;height:220px;object-fit:cover;display:block}
-    .gallery-grid figcaption{padding:10px 12px;color:var(--dusty-mauve);font-size:14px;text-align:center}
+    .gallery-grid figcaption{padding:10px 12px;color:#555;font-size:14px}
 
-    footer{padding:38px 0;text-align:center;color:var(--dusty-mauve);border-top:1px solid var(--border);font-size:14px}
+    /* Contact */
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    form{display:grid;gap:14px}
+    label{display:grid;gap:6px}
+    input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.6);font:inherit}
+    textarea{min-height:110px}
+    .map{width:100%;height:260px;border-radius:var(--radius);background:repeating-linear-gradient(45deg,#eee,#f5f5f5 10px)}
 
-    [data-animate]{opacity:0;transform:translateY(10px);transition:opacity .6s ease,transform .6s ease}
+    footer{padding:38px 0;text-align:center;color:#666;border-top:1px solid var(--border)}
+
+    /* Animations */
+    [data-animate]{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
     .reveal{opacity:1;transform:translateY(0)}
-    @media (max-width:768px){.hero{grid-template-columns:1fr;gap:24px;text-align:center}
-      .gallery-grid{grid-template-columns:1fr}}
+    @media (prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none}}
+
+    /* Mobile tweaks */
+    @media (max-width:768px){
+      .container{padding:0 16px}
+      .hero{grid-template-columns:1fr;gap:20px;padding:48px 0}
+      .hero h1{font-size:28px}
+      section{padding:56px 0}
+      h2{font-size:22px}
+      .btn{width:100%}
+      .builder-grid{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .gallery-grid{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
+  <!-- Header with mobile burger -->
   <header>
     <div class="container">
       <nav class="topnav">
         <div class="logo">Тихая Память</div>
-        <button class="nav-toggle" aria-expanded="false" aria-label="Открыть меню"><span></span><span></span><span></span></button>
+
+        <button class="nav-toggle" aria-expanded="false" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+
         <div class="menu" id="menu">
           <a href="#home">Главная</a>
           <a href="#about">О нас</a>
+          <a href="#why">Почему мы</a>
+          <a href="#how">Как это работает</a>
           <a href="#packages">Пакеты</a>
+          <a href="#builder">Собрать услуги</a>
           <a href="#gallery">Галерея</a>
           <a href="#contact">Контакты</a>
         </div>
@@ -97,117 +132,322 @@
     </div>
   </header>
 
+  <!-- Hero -->
   <main id="home" class="container hero" data-animate>
     <div>
-      <h1>Современный сервис организации церемонии</h1>
-      <p>«Тихая Память» — это агрегатор ритуальных бюро нового поколения. Мы создаём спокойное пространство, где всё организовано точно, без лишних слов и суеты.</p>
+      <h1 id="heroTitle">Организация церемонии с уважением и покоем</h1>
+      <p id="heroText">Мы создаём пространство, где всё проходит спокойно, точно и без лишних разговоров. Агрегатор «Тихая Память» объединяет надёжные ритуальные бюро, помогая организовать церемонию с достоинством и прозрачностью.</p>
       <div style="display:flex;gap:12px;flex-wrap:wrap">
-        <a href="#packages" class="btn">Посмотреть пакеты</a>
-        <a href="#contact" class="btn-outline">Связаться с нами</a>
+        <a class="btn" href="#builder">Собрать организацию</a>
+        <a class="btn btn-outline" href="#packages">Смотреть пакеты</a>
       </div>
     </div>
-    <img src="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=1200&auto=format&fit=crop" alt="Светлый зал прощания" loading="lazy">
+    <img id="heroImage"
+         src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop"
+         srcset="
+           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=480&auto=format&fit=crop 480w,
+           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop 800w,
+           https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop 1200w
+         "
+         sizes="(max-width: 768px) 100vw, 480px"
+         alt="Светлая фактура ткани" loading="lazy">
   </main>
 
+  <!-- About -->
   <section id="about" data-animate>
     <div class="container">
-      <h2>О нас</h2>
-      <p class="sub">Мы верим, что прощание может быть не актом скорби, а актом уважения.</p>
-      <p>Наша платформа объединяет надёжные агентства и позволяет организовать церемонию полностью онлайн. Всё — от оформления документов до подбора зала и цветов — в одном месте, спокойно и прозрачно.</p>
+      <h2>Новая культура прощания</h2>
+      <p class="sub">«Тихая Память» — современный подход к ритуальным услугам. Мы убираем хаос и неясность, сохраняя главное — уважение к человеку и его жизни.</p>
+      <p>Всё необходимое для организации церемонии — в одном месте: оформление документов, транспорт, зал прощания, атрибутика, сопровождение. Мы не продаём — мы сопровождаем. Каждый шаг понятен и прозрачен, каждая деталь продумана, чтобы дать время на главное — прощание и покой.</p>
     </div>
   </section>
 
+  <!-- Why -->
+  <section id="why" data-animate>
+    <div class="container">
+      <h2>Прозрачный сервис. Без спешки. Без давления.</h2>
+      <p class="sub">Всё, что нужно — в одном месте.</p>
+      <div class="cards">
+        <div class="card"><h3>Проверенные агентства</h3><p>Партнёры проходят отбор. Мы отвечаем за качество и спокойствие услуг.</p></div>
+        <div class="card"><h3>Понятные цены</h3><p>Фиксированные пакеты и открытый калькулятор без скрытых доплат.</p></div>
+        <div class="card"><h3>Удобный конструктор</h3><p>Соберите только то, что нужно. Система сразу покажет итог.</p></div>
+        <div class="card"><h3>Поддержка 24/7</h3><p>Мы всегда на связи и готовы помочь, когда это важно.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How -->
+  <section id="how" data-animate>
+    <div class="container">
+      <h2>Всё просто и спокойно</h2>
+      <p class="sub">Четыре шага — и всё под контролем.</p>
+      <div class="cards">
+        <div class="card"><h3>1. Выберите формат</h3><p>Пакет услуг или индивидуальный набор — по ситуации и предпочтениям.</p></div>
+        <div class="card"><h3>2. Укажите пожелания</h3><p>Время, место, детали церемонии фиксируются заранее.</p></div>
+        <div class="card"><h3>3. Мы координируем остальное</h3><p>Документы, транспорт, зал, атрибутика — без перегрузки вас деталями.</p></div>
+        <div class="card"><h3>4. Вы отдыхаете от забот</h3><p>Процесс прозрачен и спокоен, каждая деталь выполняется по плану.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
   <section id="packages" data-animate>
     <div class="container">
       <h2>Пакеты услуг</h2>
-      <p class="sub">Три уровня, различающиеся оформлением и деталями церемонии.</p>
+      <p class="sub">Отличия — в уровне атрибутики, логистике и времени аренды.</p>
       <div class="cards">
         <div class="card">
           <h3>Эконом</h3>
           <ul>
             <li>Оформление документов</li>
-            <li>Катафалк стандартного класса</li>
+            <li>Катафалк стандартного класса (1 рейс)</li>
             <li>Зал прощания 30 мин</li>
-            <li>Базовый гроб и текстиль</li>
+            <li>Гроб шпон, покрывало</li>
           </ul>
-          <p><strong>от 25 000 ₽</strong></p>
+          <p class="price">от ___ ₽</p>
         </div>
         <div class="card">
           <h3>Стандарт</h3>
           <ul>
-            <li>Курьерское оформление</li>
-            <li>Транспорт комфорт-класса</li>
-            <li>Зал 1 час</li>
-            <li>Венки, улучшенный текстиль</li>
+            <li>Курьерское оформление документов</li>
+            <li>Транспорт комфорт-класса (до 2 рейсов)</li>
+            <li>Зал прощания 60 мин</li>
+            <li>Улучшенный текстиль, до 2 венков</li>
           </ul>
-          <p><strong>от 45 000 ₽</strong></p>
+          <p class="price">от ___ ₽</p>
         </div>
         <div class="card">
           <h3>Премиум</h3>
           <ul>
-            <li>Индивидуальный сценарий</li>
-            <li>Декор, живая флористика</li>
-            <li>Фото/видео сопровождение</li>
-            <li>Транспорт бизнес-класса</li>
+            <li>Полный цикл с представителем</li>
+            <li>Катафалк бизнес-класса + микроавтобус</li>
+            <li>Зал прощания 90 мин, декор</li>
+            <li>Живые цветы, фото/видео по согласованию</li>
           </ul>
-          <p><strong>от 80 000 ₽</strong></p>
+          <p class="price">от ___ ₽</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Builder -->
+  <section id="builder" data-animate>
+    <div class="container">
+      <h2>Соберите услуги сами</h2>
+      <p class="sub">В основе — базовый набор, достаточный для организации похорон. Добавляйте опции и сразу видьте ориентировочную сумму.</p>
+      <div class="builder-grid">
+        <div class="builder-card" aria-label="Ваш набор">
+          <h3 style="margin-top:0;color:var(--accent-2)">Ваш набор</h3>
+          <div id="selectedList" class="list" aria-live="polite"></div>
+          <div class="total"><span>Итого</span> <span><span id="totalPrice">0</span> ₽</span></div>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+            <button class="btn" id="submitBuilder" type="button">Отправить заявку с этим набором</button>
+            <button class="btn btn-outline" id="resetBuilder" type="button">Сбросить опции</button>
+          </div>
+          <p class="sub" style="margin-top:8px">Базовые позиции обязательны и не удаляются. Цены примерные — замените на фактические.</p>
+        </div>
+        <div class="builder-card" aria-label="Доступные опции">
+          <h3 style="margin-top:0;color:var(--accent-2)">Добавить опции</h3>
+          <div id="availableList" class="list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
   <section id="gallery" data-animate>
     <div class="container">
       <h2>Галерея</h2>
-      <p class="sub">Детали, которые создают спокойствие.</p>
+      <p class="sub">Свет, пространство и порядок — без лишних деталей.</p>
       <div class="gallery-grid">
         <figure>
-          <img src="https://images.unsplash.com/photo-1617184073933-7cb4062431a1?q=80&w=1200&auto=format&fit=crop" alt="Зал прощания с мягким светом">
-          <figcaption>Зал прощания</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Мягкий дневной свет через окно">
+          <figcaption>Мягкий дневной свет</figcaption>
         </figure>
         <figure>
-          <img src="https://images.unsplash.com/photo-1604937455090-ef56c89f9c03?q=80&w=1200&auto=format&fit=crop" alt="Цветочная композиция на столе">
-          <figcaption>Цветочная композиция</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1200&auto=format&fit=crop" alt="Чистая белая ткань крупным планом">
+          <figcaption>Белая ткань</figcaption>
         </figure>
         <figure>
-          <img src="https://images.unsplash.com/photo-1579783928621-7a13d66a3a31?q=80&w=1200&auto=format&fit=crop" alt="Светлые свечи и белые цветы">
-          <figcaption>Свет и цветы</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1200&auto=format&fit=crop" alt="Спокойная архитектура и природный камень">
+          <figcaption>Спокойная архитектура</figcaption>
         </figure>
         <figure>
-          <img src="https://images.unsplash.com/photo-1617196039923-efab2cf39b9b?q=80&w=1200&auto=format&fit=crop" alt="Аккуратный интерьер ритуального зала">
-          <figcaption>Интерьер</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop" alt="Цветы в нейтральной гамме">
+          <figcaption>Нейтральные цветы</figcaption>
         </figure>
         <figure>
-          <img src="https://images.unsplash.com/photo-1599948094083-7a63cf5cfb3c?q=80&w=1200&auto=format&fit=crop" alt="Сдержанная флористика">
-          <figcaption>Флористика</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200&auto=format&fit=crop" alt="Свечи и мягкий свет">
+          <figcaption>Свет свечей</figcaption>
         </figure>
         <figure>
-          <img src="https://images.unsplash.com/photo-1620838823307-80be91e1e5d4?q=80&w=1200&auto=format&fit=crop" alt="Свечи и спокойная атмосфера">
-          <figcaption>Спокойная атмосфера</figcaption>
+          <img loading="lazy" src="https://images.unsplash.com/photo-1477322524744-0eece9e79640?q=80&w=1200&auto=format&fit=crop" alt="Пустой зал со сдержанной отделкой">
+          <figcaption>Спокойный зал</figcaption>
         </figure>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" data-animate>
     <div class="container">
       <h2>Контакты</h2>
-      <p class="sub">Мы на связи круглосуточно.</p>
-      <p><strong>Телефон:</strong> <a href="tel:+78000000000">8 800 000-00-00</a></p>
-      <p><strong>Email:</strong> <a href="mailto:info@tikhayapamyat.ru">info@tikhayapamyat.ru</a></p>
-      <p><strong>Адрес:</strong> Москва, ул. Светлая, д. 10</p>
+      <div class="contact">
+        <div class="card" aria-label="Контактная информация">
+          <p><strong>Телефон:</strong> <a id="contactPhone" href="tel:+78000000000">8 800 000-00-00</a></p>
+          <p><strong>Email:</strong> <a id="contactEmail" href="mailto:info@tikhayapamyat.ru">info@tikhayapamyat.ru</a></p>
+          <p><strong>Адрес:</strong> <span id="contactAddress">Москва, ул. Светлая, д. 10</span></p>
+          <div class="map" role="img" aria-label="Карта"></div>
+          <p class="sub">По запросу возможен выезд специалиста.</p>
+        </div>
+        <form class="card" id="leadForm" action="#">
+          <label>Имя<input id="name" name="name" type="text" placeholder="Ваше имя" required></label>
+          <label>Телефон<input id="phone" name="phone" type="tel" placeholder="+7 ___ ___-__-__" required></label>
+          <label>Пакет<select id="pkg" name="package">
+            <option value="economy">Эконом</option>
+            <option value="standard">Стандарт</option>
+            <option value="premium">Премиум</option>
+          </select></label>
+          <label>Комментарий<textarea id="msg" name="message" placeholder="Кратко опишите запрос"></textarea></label>
+          <button class="btn" type="submit">Отправить заявку</button>
+          <p class="sub">Отправляя форму, вы соглашаетесь на обработку персональных данных для связи по вашему запросу.</p>
+        </form>
+      </div>
     </div>
   </section>
 
-  <footer>© <span id="y"></span> Тихая Память — агрегатор ритуальных услуг</footer>
+  <footer>
+    © <span id="y"></span> Тихая Память — агрегатор ритуальных услуг
+  </footer>
 
   <script>
+    // Год в футере
     document.getElementById('y').textContent = new Date().getFullYear();
-    const toggle=document.querySelector('.nav-toggle'),menu=document.getElementById('menu');
-    if(toggle&&menu){toggle.addEventListener('click',()=>{const o=menu.classList.toggle('open');toggle.setAttribute('aria-expanded',o?'true':'false')});
-      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));}
-    const io=('IntersectionObserver'in window)?new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('reveal');io.unobserve(x.target)}})},{threshold:.1}):null;
-    document.querySelectorAll('[data-animate]').forEach(el=>{if(io)io.observe(el);else el.classList.add('reveal');});
+
+    // Анимации при прокрутке
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target);} });
+    },{threshold:.12}) : null;
+    document.querySelectorAll('[data-animate]').forEach(el=>{ if(io) io.observe(el); else el.classList.add('reveal'); });
+
+    // Бургер-меню
+    const toggle = document.querySelector('.nav-toggle');
+    const menu = document.getElementById('menu');
+    if(toggle && menu){
+      toggle.addEventListener('click', ()=>{
+        const opened = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      });
+      menu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+        menu.classList.remove('open'); toggle.setAttribute('aria-expanded','false');
+      }));
+    }
+
+    // Конструктор услуг
+    const currency = new Intl.NumberFormat('ru-RU');
+    const baseItems = [
+      {id:'docs_base',  name:'Оформление документов (базовый комплект)', price:12000, locked:true},
+      {id:'hearse_std', name:'Катафалк стандартного класса — 1 рейс',   price:8000,  locked:true},
+      {id:'hall_30',    name:'Зал прощания до 30 минут',                 price:7000,  locked:true},
+      {id:'coffin_basic',name:'Гроб шпон, покрывало',                    price:15000, locked:true}
+    ];
+    const options = [
+      {id:'hearse_extra', name:'Дополнительный рейс катафалка', price:5000},
+      {id:'minibus',      name:'Микроавтобус для близких',      price:6000},
+      {id:'wreath1',      name:'Венок искусственный с лентой',  price:3500},
+      {id:'wreath_live',  name:'Композиция из живых цветов',    price:9000},
+      {id:'textiles_plus',name:'Текстиль расширенный комплект', price:4000},
+      {id:'hall_plus30',  name:'Продление зала ещё на 30 минут',price:4000},
+      {id:'music_bg',     name:'Фоновое звукооформление',       price:2000},
+      {id:'host_coord',   name:'Координатор/ведущий церемонии', price:8000},
+      {id:'photo',        name:'Фото/видео сопровождение',      price:12000},
+      {id:'urn_premium',  name:'Урна керамическая/деревянная',  price:6000}
+    ];
+    const selected = new Set();
+
+    function renderSelected(){
+      const box = document.getElementById('selectedList');
+      box.innerHTML='';
+      [...baseItems, ...options.filter(o=>selected.has(o.id))].forEach(item=>{
+        const row = document.createElement('div');
+        row.className='svc ' + (item.locked?'svc--lock':'');
+        const meta = document.createElement('div');
+        meta.innerHTML = '<span>'+item.name+'</span> <small>'+currency.format(item.price)+' ₽</small>';
+        row.appendChild(meta);
+        const btn = document.createElement('button');
+        if(item.locked){
+          btn.textContent='Включено'; btn.disabled=true;
+          btn.style.borderColor='var(--border)'; btn.style.color='#777';
+        }else{
+          btn.textContent='Убрать';
+          btn.addEventListener('click', ()=>{ selected.delete(item.id); renderSelected(); renderAvailable(); updateTotal(); });
+        }
+        row.appendChild(btn);
+        box.appendChild(row);
+      });
+    }
+
+    function renderAvailable(){
+      const box = document.getElementById('availableList');
+      box.innerHTML='';
+      options.forEach(opt=>{
+        if(selected.has(opt.id)) return;
+        const row = document.createElement('div');
+        row.className='svc';
+        const meta = document.createElement('div');
+        meta.innerHTML = '<span>'+opt.name+'</span> <small>'+currency.format(opt.price)+' ₽</small>';
+        row.appendChild(meta);
+        const btn = document.createElement('button');
+        btn.textContent='Добавить';
+        btn.addEventListener('click', ()=>{ selected.add(opt.id); renderSelected(); renderAvailable(); updateTotal(); });
+        row.appendChild(btn);
+        box.appendChild(row);
+      });
+    }
+
+    function updateTotal(){
+      const baseSum = baseItems.reduce((s,i)=>s+i.price,0);
+      const optSum  = options.filter(o=>selected.has(o.id)).reduce((s,i)=>s+i.price,0);
+      document.getElementById('totalPrice').textContent = currency.format(baseSum + optSum);
+    }
+
+    document.getElementById('resetBuilder').addEventListener('click', ()=>{
+      selected.clear(); renderSelected(); renderAvailable(); updateTotal();
+    });
+
+    document.getElementById('submitBuilder').addEventListener('click', ()=>{
+      const textarea = document.getElementById('msg');
+      if(textarea){
+        const base = baseItems.map(i=>'• '+i.name+' — '+currency.format(i.price)+' ₽').join('\n');
+        const opt  = options.filter(o=>selected.has(o.id)).map(i=>'• '+i.name+' — '+currency.format(i.price)+' ₽').join('\n');
+        textarea.value = 'Прошу рассчитать стоимость по конструктору.\n\nБазовый набор:\n'+base+'\n\nОпции:\n'+(opt || 'без доп. опций')+'\n\nИтого по конструктору: '+document.getElementById('totalPrice').textContent+' ₽';
+        location.hash = '#contact';
+        textarea.focus();
+      }
+    });
+
+    // Первичная отрисовка конструктора
+    renderSelected(); renderAvailable(); updateTotal();
+
+    // (Необяз.) Простейшая отправка формы без сервера — просто алерт
+    document.getElementById('leadForm').addEventListener('submit', (e)=>{
+      e.preventDefault();
+      alert('Заявка отправлена (демо). Подключите Formspree/Telegram или серверless-эндпоинт для реальной отправки.');
+    });
+
+    // Мини-тесты в консоли
+    try{
+      const expectedBase = 12000+8000+7000+15000; // 42000
+      console.assert(baseItems.reduce((s,i)=>s+i.price,0)===expectedBase,'Сумма базовых позиций неверна');
+      const before = document.getElementById('totalPrice').textContent; selected.add('wreath1'); updateTotal(); const after = document.getElementById('totalPrice').textContent;
+      console.assert(before!==after,'Итог не меняется после добавления');
+      console.assert(/\d/.test(new Intl.NumberFormat('ru-RU').format(1000)),'Формат валюты не работает');
+      selected.delete('wreath1'); updateTotal();
+      console.info('Тесты конструктора: OK');
+    }catch(e){ console.warn('Тесты конструктора: ошибка', e); }
   </script>
 </body>
 </html>
+
+
+
