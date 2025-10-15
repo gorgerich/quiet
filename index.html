@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Тихая Память — организация церемонии</title>
+  <meta name="description" content="Современный агрегатор ритуальных услуг. Спокойный интерфейс, прозрачный выбор услуг, конструктор церемонии.">
+  <style>
+    :root{
+      --bg:#F7F6F3; /* молочный беж */
+      --text:#1E1E1E; /* основной текст */
+      --accent:#2B3A55; /* глубокий сине-серый */
+      --accent-2:#B38A58; /* теплое золото */
+      --card:rgba(255,255,255,0.82); /* полупрозрачные карточки */
+      --border:rgba(0,0,0,0.08);
+      --shadow:0 8px 24px rgba(0,0,0,0.06);
+      --radius:16px;
+      --radius-sm:12px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;padding:0;font-family:"Inter",system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;}
+    a{text-decoration:none;color:var(--accent)}
+
+    header{background:rgba(255,255,255,0.8);backdrop-filter:blur(8px);position:sticky;top:0;border-bottom:1px solid var(--border);z-index:10}
+    .container{max-width:1120px;margin:auto;padding:0 20px}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 0}
+    .logo{font-weight:700;font-size:18px;color:var(--accent);letter-spacing:.3px}
+    .menu a{margin-left:22px;color:#2b2b2b}
+    .menu a:hover{color:var(--accent-2)}
+
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding:72px 0}
+    .hero h1{font-size:38px;line-height:1.2;color:var(--accent);margin:0 0 14px}
+    .hero p{margin:0 0 24px;color:#363636}
+    .hero img{max-width:100%;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+    .btn{background:var(--accent);color:#fff;padding:14px 20px;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:transform .06s ease, background .2s ease}
+    .btn:hover{transform:translateY(-1px);background:var(--accent-2)}
+    .btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent);}
+
+    section{padding:72px 0}
+    h2{font-size:28px;color:var(--accent);margin:0 0 16px}
+    .sub{color:#535353;margin:0 0 22px}
+
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;backdrop-filter:blur(4px)}
+    .card h3{margin:0 0 8px;color:var(--accent-2)}
+    .card ul{list-style:none;margin:12px 0;padding:0}
+    .card li{margin-bottom:8px}
+    .price{font-weight:700;margin-top:10px}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    form{display:grid;gap:14px}
+    input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.6);font:inherit}
+    textarea{min-height:110px}
+    .map{width:100%;height:260px;border-radius:var(--radius);background:repeating-linear-gradient(45deg,#eee,#f5f5f5 10px)}
+
+    footer{padding:38px 0;text-align:center;color:#666;border-top:1px solid var(--border)}
+
+    /* --- Современные анимации --- */
+    [data-animate]{opacity:0;transform:translateY(10px);transition:opacity .6s ease, transform .6s ease}
+    .reveal{opacity:1;transform:translateY(0)}
+    .btn{transition:transform .06s ease, background .2s ease, box-shadow .2s ease}
+    .btn:active{transform:translateY(0)}
+    @media (prefers-reduced-motion:reduce){[data-animate]{opacity:1;transform:none}}
+
+    /* --- Конструктор услуг --- */
+    .builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .builder-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);padding:20px}
+    .svc{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:rgba(255,255,255,.7)}
+    .svc small{color:#666}
+    .svc--lock{background:rgba(243,242,238,.8);border-style:dashed}
+    .svc button{padding:8px 10px;border-radius:10px;border:1px solid var(--accent);background:transparent;color:var(--accent);cursor:pointer}
+    .svc button:hover{transform:translateY(-1px)}
+    .total{display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--border);font-weight:700}
+
+    @media (max-width:960px){
+      .hero{grid-template-columns:1fr}
+      .contact{grid-template-columns:1fr}
+      .builder-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Тихая Память</div>
+        <div class="menu">
+          <a href="#home">Главная</a>
+          <a href="#builder">Собрать услуги</a>
+          <a href="#packages">Услуги</a>
+          <a href="#contact">Контакты</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container hero" data-animate>
+    <div>
+      <h1>Организация церемонии с уважением и покоем</h1>
+      <p>Агрегатор, объединяющий проверенные бюро. Вы выбираете необходимое — мы координируем и берём на себя операционные задачи.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn" href="#builder">Собрать организацию</a>
+        <a class="btn btn-outline" href="#packages">Смотреть пакеты</a>
+      </div>
+    </div>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Casket_wood.jpg/640px-Casket_wood.jpg" alt="Гроб высокого качества" loading="lazy">
+  </main>
+
+  <!-- Конструктор услуг -->
+  <section id="builder" data-animate>
+    <div class="container">
+      <h2>Соберите услуги сами</h2>
+      <p class="sub">В основе — базовый набор, достаточный для организации похорон. К нему можно добавить опции и сразу увидеть ориентировочную сумму.</p>
+      <div class="builder-grid">
+        <div class="builder-card" aria-label="Ваш набор">
+          <h3 style="margin-top:0;color:var(--accent-2)">Ваш набор</h3>
+          <div id="selectedList" class="list" aria-live="polite"></div>
+          <div class="total"><span>Итого</span> <span><span id="totalPrice">0</span> ₽</span></div>
+          <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+            <button class="btn" id="submitBuilder" type="button">Отправить заявку с этим набором</button>
+            <button class="btn btn-outline" id="resetBuilder" type="button">Сбросить опции</button>
+          </div>
+          <p class="sub" style="margin-top:8px">Базовые позиции обязательны и не удаляются. Цены примерные — замените на фактические.</p>
+        </div>
+        <div class="builder-card" aria-label="Доступные опции">
+          <h3 style="margin-top:0;color:var(--accent-2)">Добавить опции</h3>
+          <div id="availableList" class="list"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Пакеты -->
+  <section id="packages" data-animate>
+    <div class="container">
+      <h2>Пакеты услуг</h2>
+      <p class="sub">Отличия — в уровне атрибутики, логистике и времени аренды.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Эконом</h3>
+          <ul>
+            <li>Оформление документов</li>
+            <li>Катафалк стандартного класса (1 рейс)</li>
+            <li>Зал прощания 30 мин</li>
+            <li>Гроб шпон, покрывало</li>
+          </ul>
+          <p class="price">от ___ ₽</p>
+        </div>
+        <div class="card">
+          <h3>Стандарт</h3>
+          <ul>
+            <li>Курьерское оформление документов</li>
+            <li>Транспорт комфорт-класса (до 2 рейсов)</li>
+            <li>Зал прощания 60 мин</li>
+            <li>Улучшенный текстиль, до 2 венков</li>
+          </ul>
+          <p class="price">от ___ ₽</p>
+        </div>
+        <div class="card">
+          <h3>Премиум</h3>
+          <ul>
+            <li>Полный цикл с представителем</li>
+            <li>Катафалк бизнес-класса + микроавтобус</li>
+            <li>Зал прощания 90 мин, декор</li>
+            <li>Живые цветы, фото/видео по согласованию</li>
+          </ul>
+          <p class="price">от ___ ₽</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section id="contact" data-animate>
+    <div class="container">
+      <h2>Контакты</h2>
+      <div class="contact">
+        <div class="card">
+          <p><strong>Телефон:</strong> <a href="tel:+78000000000">8 800 000‑00‑00</a></p>
+          <p><strong>Адрес:</strong> Москва, ул. Светлая, д. 10</p>
+          <p><strong>Email:</strong> info@tikhayapamyat.ru</p>
+          <div class="map" role="img" aria-label="Карта"></div>
+          <p class="sub">По запросу возможен выезд специалиста.</p>
+        </div>
+        <form class="card" action="#" method="post">
+          <label>Имя<input id="name" name="name" type="text" placeholder="Ваше имя" required></label>
+          <label>Телефон<input id="phone" name="phone" type="tel" placeholder="+7 ___ ___‑__‑__" required></label>
+          <label>Пакет<select id="pkg" name="package"><option value="economy">Эконом</option><option value="standard">Стандарт</option><option value="premium">Премиум</option></select></label>
+          <label>Комментарий<textarea id="msg" name="message" placeholder="Кратко опишите запрос"></textarea></label>
+          <button class="btn" type="submit">Отправить заявку</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Тихая Память — агрегатор ритуальных услуг
+  </footer>
+
+  <script>
+    // Год
+    document.getElementById('y').textContent=new Date().getFullYear();
+
+    // Анимации появления
+    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('reveal'); io.unobserve(e.target);} });
+    },{threshold:.12}) : null;
+    document.querySelectorAll('[data-animate]').forEach(el=>{ if(io) io.observe(el); else el.classList.add('reveal'); });
+
+    // Конструктор услуг
+    const currency = new Intl.NumberFormat('ru-RU');
+    const baseItems = [
+      {id:'docs_base', name:'Оформление документов (базовый комплект)', price:12000, locked:true},
+      {id:'hearse_std', name:'Катафалк стандартного класса — 1 рейс', price:8000, locked:true},
+      {id:'hall_30', name:'Зал прощания до 30 минут', price:7000, locked:true},
+      {id:'coffin_basic', name:'Гроб шпон, покрывало', price:15000, locked:true}
+    ];
+    const options = [
+      {id:'hearse_extra', name:'Дополнительный рейс катафалка', price:5000},
+      {id:'minibus', name:'Микроавтобус для близких', price:6000},
+      {id:'wreath1', name:'Венок искусственный с лентой', price:3500},
+      {id:'wreath_live', name:'Композиция из живых цветов', price:9000},
+      {id:'textiles_plus', name:'Текстиль расширенный комплект', price:4000},
+      {id:'hall_plus30', name:'Продление зала ещё на 30 минут', price:4000},
+      {id:'music_bg', name:'Фоновое звукооформление', price:2000},
+      {id:'host_coord', name:'Координатор/ведущий церемонии', price:8000},
+      {id:'photo', name:'Фото/видео сопровождение', price:12000},
+      {id:'urn_premium', name:'Урна керамическая/деревянная', price:6000}
+    ];
+
+    const selected = new Set();
+
+    function renderSelected(){
+      const box = document.getElementById('selectedList');
+      box.innerHTML='';
+      [...baseItems, ...options.filter(o=>selected.has(o.id))].forEach(item=>{
+        const row = document.createElement('div');
+        row.className='svc ' + (item.locked?'svc--lock':'');
+        const meta = document.createElement('div');
+        meta.innerHTML = `<span>${item.name}</span> <small>${currency.format(item.price)} ₽</small>`;
+        row.appendChild(meta);
+        const btn = document.createElement('button');
+        if(item.locked){
+          btn.textContent='Включено';
+          btn.disabled=true; btn.style.borderColor='var(--border)'; btn.style.color='#777';
+        }else{
+          btn.textContent='Убрать';
+          btn.addEventListener('click', ()=>{ selected.delete(item.id); renderSelected(); renderAvailable(); updateTotal(); });
+        }
+        row.appendChild(btn);
+        box.appendChild(row);
+      });
+    }
+
+    function renderAvailable(){
+      const box = document.getElementById('availableList');
+      box.innerHTML='';
+      options.forEach(opt=>{
+        if(selected.has(opt.id)) return;
+        const row = document.createElement('div');
+        row.className='svc';
+        const meta = document.createElement('div');
+        meta.innerHTML = `<span>${opt.name}</span> <small>${currency.format(opt.price)} ₽</small>`;
+        row.appendChild(meta);
+        const btn = document.createElement('button');
+        btn.textContent='Добавить';
+        btn.addEventListener('click', ()=>{ selected.add(opt.id); renderSelected(); renderAvailable(); updateTotal(); });
+        row.appendChild(btn);
+        box.appendChild(row);
+      });
+    }
+
+    function updateTotal(){
+      const baseSum = baseItems.reduce((s,i)=>s+i.price,0);
+      const optSum = options.filter(o=>selected.has(o.id)).reduce((s,i)=>s+i.price,0);
+      document.getElementById('totalPrice').textContent = currency.format(baseSum + optSum);
+    }
+
+    document.getElementById('resetBuilder').addEventListener('click', ()=>{
+      selected.clear(); renderSelected(); renderAvailable(); updateTotal();
+    });
+
+    document.getElementById('submitBuilder').addEventListener('click', ()=>{
+      const textarea = document.getElementById('msg');
+      if(textarea){
+        const base = baseItems.map(i=>`• ${i.name} — ${currency.format(i.price)} ₽`).join('\n');
+        const opt  = options.filter(o=>selected.has(o.id)).map(i=>`• ${i.name} — ${currency.format(i.price)} ₽`).join('\n');
+        textarea.value = `Прошу рассчитать стоимость по конструктору.\n\nБазовый набор:\n${base}\n\nОпции:\n${opt || 'без доп. опций'}\n\nИтого по конструктору: ${document.getElementById('totalPrice').textContent} ₽`;
+        location.hash = '#contact';
+        textarea.focus();
+      }
+    });
+
+    // Первичная отрисовка
+    renderSelected(); renderAvailable(); updateTotal();
+
+    // Мини-тесты в консоль
+    try{
+      const expectedBase = 12000+8000+7000+15000; // 42000
+      console.assert(baseItems.reduce((s,i)=>s+i.price,0)===expectedBase,'Сумма базовых позиций неверна');
+      const before = document.getElementById('totalPrice').textContent; selected.add('wreath1'); updateTotal(); const after = document.getElementById('totalPrice').textContent; console.assert(before!==after,'Итог не меняется после добавления');
+      console.assert(/\d/.test(new Intl.NumberFormat('ru-RU').format(1000)),'Формат валюты не работает');
+      console.info('Тесты конструктора: OK');
+    }catch(e){ console.warn('Тесты конструктора: ошибка', e); }
+  </script>
+</body>
+</html>
