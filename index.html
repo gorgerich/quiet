@@ -5,64 +5,23 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Тихая Память — современная организация церемонии</title>
-  <meta name="description" content="Современный агрегатор ритуальных услуг: спокойная эстетика, прозрачные условия, продуманный конструктор услуг и поддержка 24/7.">
+  <meta name="description" content="Современный сервис ритуальных услуг: понятные шаги, прозрачные цены, конструктор услуг и поддержка 24/7.">
   <meta name="theme-color" content="#EFE8E2">
-  <link rel="preload" as="image" href="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=900&auto=format&fit=crop" imagesrcset="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=900&auto=format&fit=crop 900w" imagesizes="(max-width: 960px) 100vw, 520px">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
   <meta property="og:title" content="Тихая Память — современная организация церемонии">
-  <meta property="og:description" content="Агрегатор ритуальных услуг с прозрачным выбором и уважительной подачей.">
+  <meta property="og:description" content="Профессиональная и спокойная организация прощания.">
   <meta property="og:image" content="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=1200&auto=format&fit=crop">
 
+  <!-- Preload hero image -->
+  <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=900&auto=format&fit=crop"
+        imagesrcset="https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=600&auto=format&fit=crop 600w, https://images.unsplash.com/photo-1600431521340-491eca880813?q=80&w=900&auto=format&fit=crop 900w"
+        imagesizes="(max-width: 960px) 100vw, 520px">
+
   <style>
-    /* === Roadmap / Timeline === */
-.timeline {
-  display: grid;
-  grid-template-columns: 1fr 4px 1fr; /* левая колонка — линия — правая колонка */
-  gap: 18px 28px;
-  position: relative;
-}
-.timeline__line {
-  grid-column: 2 / 3;
-  background: linear-gradient(to bottom, rgba(62,38,54,.12), rgba(62,38,54,.12));
-  border-radius: 2px;
-}
-.timeline__item {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 12px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 16px;
-  align-items: start;
-}
-.timeline__item:nth-child(odd) { grid-column: 1 / 2; }    /* левая сторона */
-.timeline__item:nth-child(even){ grid-column: 3 / 4; }    /* правая сторона */
-
-.timeline__icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(199,157,98,.12); /* medium-gold с прозрачностью */
-  display: grid; place-items: center;
-  border: 1px solid var(--border);
-}
-.timeline__icon svg { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 1.8; }
-
-.timeline__title { margin: 0 0 6px; font-weight: 700; color: var(--accent); }
-.timeline__meta { margin: 6px 0 0; color: var(--dusty-mauve); font-size: 13px; }
-
-@media (max-width: 960px){
-  .timeline { grid-template-columns: 4px 1fr; }
-  .timeline__line { grid-column: 1 / 2; grid-row: 1 / -1; }
-  .timeline__item { grid-column: 2 / 3; }
-}
-
-[data-animate].timeline__item { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.timeline__item { opacity: 1; transform: none; }
-
     /* ================= THEME (ваша палитра) ================= */
     :root{
       --fig-purple:#5C3A4C;
@@ -137,12 +96,11 @@
       background:var(--olive-sage); color:var(--soft-cream);
       border-radius:12px; padding:14px 20px; font-weight:600;
       transition:background .2s ease, transform .1s ease, box-shadow .2s ease;
-      box-shadow:var(--shadow)
+      box-shadow:var(--shadow); min-height:44px
     }
     .btn:hover{background:var(--medium-gold); transform:translateY(-1px)}
     .btn--outline{background:transparent; color:var(--olive-sage); border:1px solid var(--olive-sage); box-shadow:none}
     .btn--outline:hover{background:var(--medium-gold); color:var(--soft-cream); border-color:var(--medium-gold)}
-    a, button{min-height:44px}
 
     /* Hero */
     .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center;padding-block:calc(var(--space) - 24px)}
@@ -185,7 +143,7 @@
     .svc{display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--border); border-radius:12px; background:rgba(255,255,255,.86)}
     .svc small{color:#666}
     .svc--lock{background:rgba(239,232,226,.8); border-style:dashed}
-    .svc__btn{padding:8px 10px; border-radius:10px; border:1px solid var(--olive-sage); background:transparent; color:var(--olive-sage); cursor:pointer}
+    .svc__btn{padding:8px 10px; border-radius:10px; border:1px solid var(--olive-sage); background:transparent; color:var(--olive-sage); cursor:pointer; min-height:40px}
     .svc__btn:hover{transform:translateY(-1px); border-color:var(--medium-gold); color:var(--medium-gold)}
     .builder__total{display:flex; justify-content:space-between; align-items:center; margin-top:12px; padding-top:12px; border-top:1px solid var(--border); font-weight:700}
     .builder__actions{display:flex; gap:10px; flex-wrap:wrap}
@@ -201,6 +159,17 @@
     .sticky-total__sum{font-weight:700}
     @media (max-width:960px){ .sticky-total{display:flex} }
 
+    /* Timeline (инфографика) */
+    .timeline { display:grid; grid-template-columns:1fr 4px 1fr; gap:18px 28px; position:relative }
+    .timeline__line { grid-column:2/3; background:linear-gradient(to bottom, rgba(62,38,54,.12), rgba(62,38,54,.12)); border-radius:2px }
+    .timeline__item { display:grid; grid-template-columns:56px 1fr; gap:12px; background:var(--card); border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); padding:16px; align-items:start }
+    .timeline__item:nth-child(odd){ grid-column:1/2 } .timeline__item:nth-child(even){ grid-column:3/4 }
+    .timeline__icon { width:56px;height:56px;border-radius:50%;background:rgba(199,157,98,.12);display:grid;place-items:center;border:1px solid var(--border) }
+    .timeline__icon svg { width:26px;height:26px;fill:none;stroke:var(--accent);stroke-width:1.8 }
+    .timeline__title { margin:0 0 6px; font-weight:700; color:var(--accent) }
+    .timeline__meta { margin:6px 0 0; color:var(--dusty-mauve); font-size:13px }
+    @media (max-width:960px){ .timeline{grid-template-columns:4px 1fr} .timeline__line{grid-column:1/2; grid-row:1/-1} .timeline__item{grid-column:2/3} }
+
     /* Footer */
     footer{padding:32px 0; text-align:center; color:var(--dusty-mauve); border-top:1px solid var(--border); font-size:14px}
 
@@ -208,49 +177,6 @@
     [data-animate]{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease}
     .reveal{opacity:1; transform:none}
     @media (prefers-reduced-motion:reduce){ [data-animate]{opacity:1; transform:none} .btn, .svc__btn{transition:none} }
-    /* === Roadmap / Timeline === */
-.timeline {
-  display: grid;
-  grid-template-columns: 1fr 4px 1fr;
-  gap: 18px 28px;
-  position: relative;
-}
-.timeline__line {
-  grid-column: 2 / 3;
-  background: linear-gradient(to bottom, rgba(62,38,54,.12), rgba(62,38,54,.12));
-  border-radius: 2px;
-}
-.timeline__item {
-  display: grid;
-  grid-template-columns: 56px 1fr;
-  gap: 12px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  box-shadow: var(--shadow);
-  padding: 16px;
-  align-items: start;
-}
-.timeline__item:nth-child(odd) { grid-column: 1 / 2; }
-.timeline__item:nth-child(even){ grid-column: 3 / 4; }
-.timeline__icon {
-  width: 56px; height: 56px; border-radius: 50%;
-  background: rgba(199,157,98,.12);
-  display: grid; place-items: center;
-  border: 1px solid var(--border);
-}
-.timeline__icon svg { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 1.8; }
-.timeline__title { margin: 0 0 6px; font-weight: 700; color: var(--accent); }
-.timeline__meta { margin: 6px 0 0; color: var(--dusty-mauve); font-size: 13px; }
-
-@media (max-width: 960px){
-  .timeline { grid-template-columns: 4px 1fr; }
-  .timeline__line { grid-column: 1 / 2; grid-row: 1 / -1; }
-  .timeline__item { grid-column: 2 / 3; }
-}
-[data-animate].timeline__item { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.timeline__item { opacity: 1; transform: none; }
-
   </style>
 
   <!-- Schema.org -->
@@ -260,7 +186,7 @@
     "@type":"Organization",
     "name":"Тихая Память",
     "url":"",
-    "description":"Современный агрегатор ритуальных услуг.",
+    "description":"Современный сервис ритуальных услуг.",
     "contactPoint":{"@type":"ContactPoint","telephone":"+7-800-000-00-00","contactType":"customer service","areaServed":"RU"}
   }
   </script>
@@ -268,6 +194,7 @@
 <body>
   <a href="#main" class="sr-only">Перейти к основному содержимому</a>
 
+  <!-- Header -->
   <header role="banner">
     <div class="container">
       <nav class="nav" role="navigation" aria-label="Основная навигация">
@@ -279,6 +206,7 @@
           <a role="menuitem" href="#home">Главная</a>
           <a role="menuitem" href="#about">О нас</a>
           <a role="menuitem" href="#packages">Пакеты</a>
+          <a role="menuitem" href="#roadmap-3">Как это проходит</a>
           <a role="menuitem" href="#builder">Собрать услуги</a>
           <a role="menuitem" href="#gallery">Галерея</a>
           <a role="menuitem" href="#contact">Контакты</a>
@@ -288,284 +216,11 @@
   </header>
 
   <main id="main">
-    <section id="roadmap" class="container" data-animate aria-labelledby="roadmap-title">
-  <h2 id="roadmap-title">Дорожная карта</h2>
-  <p class="sub">Пошаговый план: от первого звонка до завершения всех формальностей.</p>
-
-  <div class="timeline" role="list">
-    <div class="timeline__line" aria-hidden="true"></div>
-
-    <!-- 1. Первичный контакт -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- phone -->
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.58 2.5a2 2 0 0 1-.45 2.11L7.1 9.49a16 16 0 0 0 6.4 6.4l1.16-1.1a2 2 0 0 1 2.11-.45c.8.26 1.64.46 2.5.58A2 2 0 0 1 22 16.92z"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Первичный контакт</h3>
-        <p>Заявка 24/7, назначаем координатора, фиксируем исходные данные и контактный номер.</p>
-        <p class="timeline__meta">Срок: сразу • Документы: паспорт заявителя (если под рукой)</p>
-      </div>
-    </article>
-
-    <!-- 2. Документы -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- file-text -->
-        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Оформление документов</h3>
-        <p>Помогаем получить мед. свидетельство, справку о смерти, гербовое свидетельство в ЗАГС.</p>
-        <p class="timeline__meta">Срок: 1 день • Документы: паспорта, СНИЛС/полис (если есть)</p>
-      </div>
-    </article>
-
-    <!-- 3. Формат -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- calendar -->
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Выбор формата и даты</h3>
-        <p>Светская/религиозная церемония, площадка, дата и бюджет. Учитываем пожелания семьи.</p>
-        <p class="timeline__meta">Опции: ведущий/священнослужитель, речи, фото для экрана</p>
-      </div>
-    </article>
-
-    <!-- 4. Подготовка -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- heart (забота) -->
-        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Подготовка и атрибутика</h3>
-        <p>Хранение, подготовка, подбор гроба/урны, текстиля, венков, таблички. Декор по желанию.</p>
-        <p class="timeline__meta">Опции: живые цветы, индивидуальный декор</p>
-      </div>
-    </article>
-
-    <!-- 5. Логистика -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- truck -->
-        <svg viewBox="0 0 24 24"><path d="M10 17h4V5H3v12h2"/><path d="M17 17h2l3-5V9h-5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Логистика и площадка</h3>
-        <p>Бронирование зала, катафалка, транспорта для близких, слоты кладбища/крематория.</p>
-        <p class="timeline__meta">Опции: музыка, фото/видео</p>
-      </div>
-    </article>
-
-    <!-- 6. Церемония -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- compass (сценарий/координация) -->
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16 8 12 14 8 16 10 12 16 8"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Церемония прощания</h3>
-        <p>Сценарий, тайминг, координация носильщиков, порядок выступлений. Спокойный темп.</p>
-        <p class="timeline__meta">Опции: ритуалы, памятные символы</p>
-      </div>
-    </article>
-
-    <!-- 7. Погребение/кремация -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- layers (варианты) -->
-        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Погребение или кремация</h3>
-        <p>Сопровождаем процесс на кладбище или в крематории, соблюдаем регламент и традиции.</p>
-        <p class="timeline__meta">Опции: колумбарий, захоронение урны</p>
-      </div>
-    </article>
-
-    <!-- 8. Завершение -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- check-circle -->
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Завершение и документы</h3>
-        <p>Передаём все документы/вещи, закрываем договор. По запросу — поминальная трапеза.</p>
-        <p class="timeline__meta">Срок: в день церемонии/на следующий</p>
-      </div>
-    </article>
-
-    <!-- 9. После -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <!-- star (память) -->
-        <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 13 19 21 12 17 5 21 7 13 2 9 9 9 12 2"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">После церемонии</h3>
-        <p>Памятник/ограда, уход за могилой, консультации по выплатам, напоминания о датах.</p>
-        <p class="timeline__meta">Опции: ежегодный уход, сервис напоминаний</p>
-      </div>
-    </article>
-  </div>
-</section>
-<section id="roadmap-3" class="container" data-animate aria-labelledby="roadmap3-title">
-  <h2 id="roadmap3-title">Как это проходит — кратко</h2>
-  <p class="sub">Три шага: от первого обращения до завершения всех формальностей.</p>
-  <section id="roadmap" class="container" data-animate aria-labelledby="roadmap-title">
-  <h2 id="roadmap-title">Дорожная карта</h2>
-  <p class="sub">Пошаговый план: от первого звонка до завершения всех формальностей.</p>
-
-  <div class="timeline" role="list">
-    <div class="timeline__line" aria-hidden="true"></div>
-
-    <!-- 1 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.58 2.5a2 2 0 0 1-.45 2.11L7.1 9.49a16 16 0 0 0 6.4 6.4l1.16-1.1a2 2 0 0 1 2.11-.45c.8.26 1.64.46 2.5.58A2 2 0 0 1 22 16.92z"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Первичный контакт</h3>
-        <p>Заявка 24/7, координатор, фиксируем исходные данные.</p>
-        <p class="timeline__meta">Срок: сразу</p>
-      </div>
-    </article>
-
-    <!-- 2 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Документы</h3>
-        <p>Мед. свидетельство, справка о смерти, гербовое свидетельство (ЗАГС).</p>
-        <p class="timeline__meta">Срок: 1 день</p>
-      </div>
-    </article>
-
-    <!-- 3 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Формат и дата</h3>
-        <p>Светская/религиозная церемония, площадка, бюджет.</p>
-        <p class="timeline__meta">Опции: ведущий, речи, фото</p>
-      </div>
-    </article>
-
-    <!-- 4 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Подготовка и атрибутика</h3>
-        <p>Хранение, подготовка, гроб/урна, текстиль, венки, табличка.</p>
-        <p class="timeline__meta">Опции: декор, живые цветы</p>
-      </div>
-    </article>
-
-    <!-- 5 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M10 17h4V5H3v12h2"/><path d="M17 17h2l3-5V9h-5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Логистика</h3>
-        <p>Зал, катафалк, транспорт для близких, слоты кладбища/крематория.</p>
-        <p class="timeline__meta">Опции: музыка, фото/видео</p>
-      </div>
-    </article>
-
-    <!-- 6 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16 8 12 14 8 16 10 12 16 8"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Церемония</h3>
-        <p>Сценарий, тайминг, носильщики, порядок выступлений.</p>
-        <p class="timeline__meta">Опции: ритуалы, символы</p>
-      </div>
-    </article>
-
-    <!-- 7 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Погребение/кремация</h3>
-        <p>Сопровождение на кладбище или в крематории, по регламенту.</p>
-        <p class="timeline__meta">Опции: колумбарий, урна</p>
-      </div>
-    </article>
-
-    <!-- 8 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">Завершение</h3>
-        <p>Передаём документы/вещи, закрываем договор, при необходимости — поминки.</p>
-        <p class="timeline__meta">Срок: в день церемонии/на следующий</p>
-      </div>
-    </article>
-
-    <!-- 9 -->
-    <article class="timeline__item reveal" role="listitem" data-animate>
-      <div class="timeline__icon" aria-hidden="true">
-        <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 13 19 21 12 17 5 21 7 13 2 9 9 9 12 2"/></svg>
-      </div>
-      <div>
-        <h3 class="timeline__title">После</h3>
-        <p>Памятник/ограда, уход, консультации по выплатам, напоминания о датах.</p>
-        <p class="timeline__meta">Опции: ежегодный уход</p>
-      </div>
-    </article>
-  </div>
-</section>
-
-  <div class="grid">
-    <article class="card">
-      <h3>1. Оперативная помощь и документы</h3>
-      <ul class="list">
-        <li><strong>Мы:</strong> координатор 24/7, оформление мед. и гербовых документов.</li>
-        <li><strong>Вы:</strong> базовая информация, паспорта (если есть).</li>
-        <li><small>Сроки:</small> сразу / 1 день • <small>Опции:</small> удалённое оформление, курьер.</li>
-      </ul>
-    </article>
-    <article class="card">
-      <h3>2. Подготовка и организация прощания</h3>
-      <ul class="list">
-        <li><strong>Мы:</strong> формат, дата и место; зал, транспорт; подготовка; гроб/урна, текстиль, цветы.</li>
-        <li><strong>Вы:</strong> подтверждение формата и пожеланий, личные вещи (по желанию).</li>
-        <li><small>Сроки:</small> 1–2 дня • <small>Опции:</small> декор, музыка, фото/видео, ведущий.</li>
-      </ul>
-    </article>
-    <article class="card">
-      <h3>3. Церемония и завершение</h3>
-      <ul class="list">
-        <li><strong>Мы:</strong> сценарий, тайминг, сопровождение на кладбище/в крематории; передача документов.</li>
-        <li><strong>Вы:</strong> присутствие, при желании — речи/фото.</li>
-        <li><small>После:</small> памятник, уход, консультации по выплатам • <small>Опции:</small> колумбарий, поминки.</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
     <!-- HERO -->
     <section id="home" class="container hero" data-animate>
       <div>
-        <h1 class="hero__title">Современный сервис организации церемонии</h1>
-        <p class="hero__text">Мы создаём спокойное пространство, где всё организовано точно и без суеты. Агрегатор «Тихая Память» объединяет надёжные бюро и подрядчиков.</p>
+        <h1 class="hero__title">Организация прощания — спокойно и по плану</h1>
+        <p class="hero__text">Координируем все этапы: документы, площадка, логистика, атрибутика. Действуем аккуратно и прозрачно, без спешки и навязывания. На связи 24/7.</p>
         <div class="hero__cta">
           <a href="#builder" class="btn">Собрать услуги</a>
           <a href="#packages" class="btn btn--outline">Посмотреть пакеты</a>
@@ -584,46 +239,79 @@
 
     <!-- ABOUT -->
     <section id="about" class="container" data-animate>
-      <h2>О нас</h2>
-      <p class="sub">Прощание как акт уважения, а не траура.</p>
-      <p>Всё — от оформления документов до подбора зала, транспорта и атрибутики — доступно в одном месте. Мы сопровождаем и координируем процесс аккуратно и прозрачно.</p>
+      <h2>О сервисе</h2>
+      <p class="sub">Прощание — это акт уважения. Наша задача — порядок и ясность.</p>
+      <p>«Тихая Память» — современный сервис ритуальных услуг. Мы бережно ведём процесс от первого звонка до завершения всех формальностей: помогаем с документами, подбираем зал, организуем транспорт и атрибутику. Всё — спокойно, заранее согласовано, с уважением к семье и к памяти близкого.</p>
     </section>
 
     <!-- PACKAGES -->
     <section id="packages" class="container" data-animate>
       <h2>Пакеты услуг</h2>
-      <a href="#roadmap-3">Как это проходит</a>
-      <p class="sub">Три уровня, различающиеся оформлением и деталями церемонии.</p>
+      <p class="sub">Отличия — в логистике, времени аренды зала и составе атрибутики.</p>
       <div class="grid" role="list">
         <article class="card" role="listitem" aria-labelledby="pkg-eco">
           <h3 id="pkg-eco">Эконом</h3>
           <ul class="list">
             <li>Оформление документов</li>
-            <li>Катафалк стандартного класса</li>
-            <li>Зал прощания 30 мин</li>
+            <li>Катафалк стандартного класса (1 рейс)</li>
+            <li>Зал прощания до 30 минут</li>
             <li>Базовый гроб и текстиль</li>
           </ul>
-          <p><strong>от 25 000 ₽</strong></p>
+          <p><strong>от ___ ₽</strong></p>
         </article>
         <article class="card" role="listitem" aria-labelledby="pkg-std">
           <h3 id="pkg-std">Стандарт</h3>
           <ul class="list">
             <li>Курьерское оформление</li>
-            <li>Транспорт комфорт-класса</li>
-            <li>Зал 1 час</li>
-            <li>Венки, улучшенный текстиль</li>
+            <li>Транспорт комфорт-класса (до 2 рейсов)</li>
+            <li>Зал 60 минут</li>
+            <li>Улучшенный текстиль, до 2 венков</li>
           </ul>
-          <p><strong>от 45 000 ₽</strong></p>
+          <p><strong>от ___ ₽</strong></p>
         </article>
         <article class="card" role="listitem" aria-labelledby="pkg-prem">
           <h3 id="pkg-prem">Премиум</h3>
           <ul class="list">
-            <li>Индивидуальный сценарий</li>
-            <li>Декор, живая флористика</li>
-            <li>Фото/видео сопровождение</li>
-            <li>Транспорт бизнес-класса</li>
+            <li>Индивидуальный сценарий с координатором</li>
+            <li>Катафалк бизнес-класса + микроавтобус</li>
+            <li>Зал 90 минут, декор, живая флористика</li>
+            <li>Фото/видео по согласованию</li>
           </ul>
-          <p><strong>от 80 000 ₽</strong></p>
+          <p><strong>от ___ ₽</strong></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ROADMAP — 3 шага -->
+    <section id="roadmap-3" class="container" data-animate aria-labelledby="roadmap3-title">
+      <h2 id="roadmap3-title">Как это проходит — кратко</h2>
+      <p class="sub">Три шага: от первого обращения до завершения всех формальностей.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>1. Оперативная помощь и документы</h3>
+          <ul class="list">
+            <li><strong>Мы:</strong> принимаем обращение 24/7, назначаем координатора, подсказываем первые шаги.</li>
+            <li><strong>Документы:</strong> оформляем мед. свидетельство, справку о смерти, гербовое свидетельство (ЗАГС).</li>
+            <li><strong>Вы:</strong> даёте базовую информацию и контакты; при наличии — паспорта.</li>
+            <li><small>Сроки:</small> сразу / 1 день • <small>Опции:</small> курьер, дистанционное согласование.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>2. Подготовка и организация прощания</h3>
+          <ul class="list">
+            <li><strong>Мы:</strong> согласуем формат, дату и место; бронируем зал, катафалк и транспорт.</li>
+            <li><strong>Атрибутика:</strong> гроб/урна, текстиль, венки/цветы, табличка; аккуратная подготовка.</li>
+            <li><strong>Вы:</strong> подтверждаете формат и пожелания; при желании — одежда и личные вещи.</li>
+            <li><small>Сроки:</small> обычно 1–2 дня • <small>Опции:</small> декор, музыка, фото/видео, ведущий.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>3. Церемония и завершение</h3>
+          <ul class="list">
+            <li><strong>Мы:</strong> сценарий, тайминг, носильщики; сопровождение на кладбище/в крематории.</li>
+            <li><strong>После:</strong> передача документов, помощь с памятником/уходом, консультации по выплатам.</li>
+            <li><small>Сроки:</small> день церемонии + завершение в этот же/следующий день.</li>
+          </ul>
         </article>
       </div>
     </section>
@@ -631,7 +319,7 @@
     <!-- BUILDER -->
     <section id="builder" class="container" data-animate aria-labelledby="builder-title">
       <h2 id="builder-title">Соберите услуги сами</h2>
-      <p class="sub">В основе — базовый набор. Добавляйте опции и сразу видьте ориентировочную сумму.</p>
+      <p class="sub">Базовый набор уже включён. Добавляйте опции — итог пересчитывается сразу.</p>
 
       <div class="builder" role="application" aria-describedby="builder-help">
         <div class="builder__panel" aria-label="Ваш набор">
@@ -652,6 +340,124 @@
           <h3 style="margin-top:0;color:var(--accent-2)">Добавить опции</h3>
           <div id="availableList" class="list"></div>
         </div>
+      </div>
+    </section>
+
+    <!-- TIMELINE -->
+    <section id="roadmap" class="container" data-animate aria-labelledby="roadmap-title">
+      <h2 id="roadmap-title">Дорожная карта</h2>
+      <p class="sub">Пошаговый план: от первого звонка до завершения всех формальностей.</p>
+
+      <div class="timeline" role="list">
+        <div class="timeline__line" aria-hidden="true"></div>
+
+        <!-- 1 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.58 2.5a2 2 0 0 1-.45 2.11L7.1 9.49a16 16 0 0 0 6.4 6.4l1.16-1.1a2 2 0 0 1 2.11-.45c.8.26 1.64.46 2.5.58A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Первичный контакт</h3>
+            <p>Заявка 24/7, координатор, фиксируем исходные данные.</p>
+            <p class="timeline__meta">Срок: сразу</p>
+          </div>
+        </article>
+
+        <!-- 2 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Документы</h3>
+            <p>Мед. свидетельство, справка о смерти, гербовое свидетельство (ЗАГС).</p>
+            <p class="timeline__meta">Срок: 1 день</p>
+          </div>
+        </article>
+
+        <!-- 3 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Формат и дата</h3>
+            <p>Светская/религиозная церемония, площадка, бюджет.</p>
+            <p class="timeline__meta">Опции: ведущий, речи, фото</p>
+          </div>
+        </article>
+
+        <!-- 4 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Подготовка и атрибутика</h3>
+            <p>Хранение, подготовка, гроб/урна, текстиль, венки, табличка.</p>
+            <p class="timeline__meta">Опции: декор, живые цветы</p>
+          </div>
+        </article>
+
+        <!-- 5 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M10 17h4V5H3v12h2"/><path d="M17 17h2l3-5V9h-5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Логистика</h3>
+            <p>Зал, катафалк, транспорт для близких, слоты кладбища/крематория.</p>
+            <p class="timeline__meta">Опции: музыка, фото/видео</p>
+          </div>
+        </article>
+
+        <!-- 6 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16 8 12 14 8 16 10 12 16 8"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Церемония</h3>
+            <p>Сценарий, тайминг, носильщики, порядок выступлений.</p>
+            <p class="timeline__meta">Опции: ритуалы, символы</p>
+          </div>
+        </article>
+
+        <!-- 7 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Погребение/кремация</h3>
+            <p>Сопровождение на кладбище или в крематории, по регламенту.</p>
+            <p class="timeline__meta">Опции: колумбарий, урна</p>
+          </div>
+        </article>
+
+        <!-- 8 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">Завершение</h3>
+            <p>Передаём документы/вещи, закрываем договор; по запросу — поминальная трапеза.</p>
+            <p class="timeline__meta">Срок: в день церемонии/на следующий</p>
+          </div>
+        </article>
+
+        <!-- 9 -->
+        <article class="timeline__item reveal" role="listitem" data-animate>
+          <div class="timeline__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 13 19 21 12 17 5 21 7 13 2 9 9 9 12 2"/></svg>
+          </div>
+          <div>
+            <h3 class="timeline__title">После</h3>
+            <p>Памятник/ограда, уход, консультации по выплатам, напоминания о датах.</p>
+            <p class="timeline__meta">Опции: ежегодный уход</p>
+          </div>
+        </article>
       </div>
     </section>
 
@@ -703,7 +509,7 @@
           <fieldset style="border:none;padding:0;margin:0">
             <legend class="sr-only">Форма обратной связи</legend>
             <label for="name">Имя<input id="name" name="name" type="text" placeholder="Ваше имя" required></label>
-            <label for="phone">Телефон<input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+7 ___ ___-__-__" required></label>
+            <label for="phone">Телефон<input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+7 900 000-00-00" required></label>
             <label for="pkg">Пакет<select id="pkg" name="package">
               <option value="economy">Эконом</option>
               <option value="standard">Стандарт</option>
@@ -733,7 +539,7 @@
   (function(){
     "use strict";
 
-    // Utils
+    // ===== Utils =====
     const $ = (sel, root=document) => root.querySelector(sel);
     const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
     const fmt = new Intl.NumberFormat('ru-RU');
@@ -765,7 +571,7 @@
       : null;
     $$('[data-animate]').forEach(el=>{ if(io) io.observe(el); else el.classList.add('reveal'); });
 
-    // ===== Builder State (reactive, vanilla) =====
+    // ===== Builder State (reactive) =====
     const state = {
       base: [
         {id:'docs_base',   name:'Оформление документов (базовый комплект)', price:12000, locked:true},
@@ -831,6 +637,7 @@
           btn.addEventListener('click', ()=>{
             state.selected.delete(item.id);
             renderAll();
+            track('builder_remove', { name: item.name });
           }, {once:true});
         }
         row.appendChild(meta); row.appendChild(btn);
@@ -852,11 +659,11 @@
         const btn = document.createElement('button');
         btn.className = 'svc__btn';
         btn.textContent = 'Добавить';
-        btn.setAttribute('data-add', opt.id);
         btn.setAttribute('aria-label','Добавить опцию: ' + opt.name);
         btn.addEventListener('click', ()=>{
           state.selected.add(opt.id);
           renderAll();
+          track('builder_add', { name: opt.name });
         }, {once:true});
         row.appendChild(meta); row.appendChild(btn);
         box.appendChild(row);
@@ -874,18 +681,18 @@
       renderAvailable();
       renderTotal();
     }
-
-    // Init
     renderAll();
 
     // Actions
     els.resetBtn.addEventListener('click', ()=>{
       state.selected.clear();
       renderAll();
+      track('builder_reset');
     });
     els.resetMobile.addEventListener('click', ()=>{
       state.selected.clear();
       renderAll();
+      track('builder_reset_mobile');
     });
     els.submitBtn.addEventListener('click', ()=>{
       if (!els.msg) return;
@@ -894,13 +701,14 @@
       els.msg.value = 'Прошу рассчитать стоимость по конструктору.\n\nБазовый набор:\n'+base+'\n\nОпции:\n'+(opt || 'без доп. опций')+'\n\nИтого: '+fmt.format(calcTotal())+' ₽';
       location.hash = '#contact';
       els.msg.focus();
+      track('builder_submit', { sum: calcTotal() });
     });
     els.ctaToForm.addEventListener('click', ()=>{
-      // переносит состав и сумму в форму
       if (!els.msg) return;
       const base = state.base.map(i=>'• '+i.name+' — '+fmt.format(i.price)+' ₽').join('\n');
       const opt  = state.options.filter(o=>state.selected.has(o.id)).map(i=>'• '+i.name+' — '+fmt.format(i.price)+' ₽').join('\n');
       els.msg.value = 'Выбранный состав:\n\n'+base+'\n\nОпции:\n'+(opt || 'без доп. опций')+'\n\nИтого: '+fmt.format(calcTotal())+' ₽';
+      track('builder_cta_form', { sum: calcTotal() });
     });
 
     // Lead form (progressive enhancement)
@@ -914,61 +722,34 @@
       const phone = String(fd.get('phone')||'').trim();
       if(!name || !phoneRe.test(phone)){
         alert('Проверьте имя и телефон. Пример: +7 900 000-00-00');
-        return;
+        track('lead_invalid'); return;
       }
       submitLead.disabled = true;
-      submitLead.textContent = 'Отправка...';
+      submitLead.textContent = 'Отправляем…';
 
       // TODO: замените на реальный endpoint (Formspree/Telegram/serverless)
-      // Демо-режим:
       await new Promise(r=>setTimeout(r, 500));
-      alert('Заявка отправлена (демо). Подключите реальную отправку в app.js.');
+      alert('Заявка отправлена (демо). Подключите реальную отправку.');
+      track('lead_submit');
 
       submitLead.disabled = false;
       submitLead.textContent = 'Отправить заявку';
       leadForm.reset();
     });
 
-  })();
     // === Minimal Analytics ===
-window.dataLayer = window.dataLayer || [];
-function track(event, payload = {}) {
-  const data = { event, ts: Date.now(), ...payload };
-  window.dataLayer.push(data);
-  if (window.location.hostname.includes('localhost')) console.log('[track]', data);
-}
+    window.dataLayer = window.dataLayer || [];
+    function track(event, payload = {}) {
+      const data = { event, ts: Date.now(), ...payload };
+      window.dataLayer.push(data);
+      if (window.location.hostname.includes('localhost')) console.log('[track]', data);
+    }
+    // Меню/якоря
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', ()=> track('nav_click', { target: a.getAttribute('href') }));
+    });
 
-// Меню и CTA
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', ()=> track('nav_click', { target: a.getAttribute('href') }));
-});
-
-// Пакеты (если есть кнопки — трекаем; иначе трекаем заголовки)
-document.querySelectorAll('#packages .card h3').forEach(h=>{
-  h.addEventListener('click', ()=> track('pkg_view', { pkg: h.textContent.trim() }));
-});
-
-// Конструктор: добавление/удаление
-document.addEventListener('click', (e)=>{
-  const btn = e.target.closest('.svc__btn');
-  if(!btn) return;
-  const row = btn.closest('.svc');
-  const name = row?.querySelector('span')?.textContent?.trim();
-  track(btn.textContent.includes('Добавить') ? 'builder_add' : 'builder_remove', { name });
-});
-
-// Sticky-итог (оформление)
-const ctaToForm = document.getElementById('ctaToForm');
-if (ctaToForm) ctaToForm.addEventListener('click', ()=> track('builder_cta_form', { sum: document.getElementById('totalPriceSticky')?.textContent }));
-
-// Отправка формы
-const leadFormEl = document.getElementById('leadForm');
-if (leadFormEl) {
-  leadFormEl.addEventListener('submit', ()=> track('lead_submit'));
-}
-
+  })();
   </script>
 </body>
 </html>
-
-
