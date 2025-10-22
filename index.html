@@ -208,6 +208,49 @@
     [data-animate]{opacity:0; transform:translateY(10px); transition:opacity .6s ease, transform .6s ease}
     .reveal{opacity:1; transform:none}
     @media (prefers-reduced-motion:reduce){ [data-animate]{opacity:1; transform:none} .btn, .svc__btn{transition:none} }
+    /* === Roadmap / Timeline === */
+.timeline {
+  display: grid;
+  grid-template-columns: 1fr 4px 1fr;
+  gap: 18px 28px;
+  position: relative;
+}
+.timeline__line {
+  grid-column: 2 / 3;
+  background: linear-gradient(to bottom, rgba(62,38,54,.12), rgba(62,38,54,.12));
+  border-radius: 2px;
+}
+.timeline__item {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  padding: 16px;
+  align-items: start;
+}
+.timeline__item:nth-child(odd) { grid-column: 1 / 2; }
+.timeline__item:nth-child(even){ grid-column: 3 / 4; }
+.timeline__icon {
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(199,157,98,.12);
+  display: grid; place-items: center;
+  border: 1px solid var(--border);
+}
+.timeline__icon svg { width: 26px; height: 26px; fill: none; stroke: var(--accent); stroke-width: 1.8; }
+.timeline__title { margin: 0 0 6px; font-weight: 700; color: var(--accent); }
+.timeline__meta { margin: 6px 0 0; color: var(--dusty-mauve); font-size: 13px; }
+
+@media (max-width: 960px){
+  .timeline { grid-template-columns: 4px 1fr; }
+  .timeline__line { grid-column: 1 / 2; grid-row: 1 / -1; }
+  .timeline__item { grid-column: 2 / 3; }
+}
+[data-animate].timeline__item { opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+.reveal.timeline__item { opacity: 1; transform: none; }
+
   </style>
 
   <!-- Schema.org -->
@@ -370,6 +413,153 @@
     </article>
   </div>
 </section>
+<section id="roadmap-3" class="container" data-animate aria-labelledby="roadmap3-title">
+  <h2 id="roadmap3-title">Как это проходит — кратко</h2>
+  <p class="sub">Три шага: от первого обращения до завершения всех формальностей.</p>
+  <section id="roadmap" class="container" data-animate aria-labelledby="roadmap-title">
+  <h2 id="roadmap-title">Дорожная карта</h2>
+  <p class="sub">Пошаговый план: от первого звонка до завершения всех формальностей.</p>
+
+  <div class="timeline" role="list">
+    <div class="timeline__line" aria-hidden="true"></div>
+
+    <!-- 1 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h2a2 2 0 0 1 2 1.72c.12.86.32 1.7.58 2.5a2 2 0 0 1-.45 2.11L7.1 9.49a16 16 0 0 0 6.4 6.4l1.16-1.1a2 2 0 0 1 2.11-.45c.8.26 1.64.46 2.5.58A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Первичный контакт</h3>
+        <p>Заявка 24/7, координатор, фиксируем исходные данные.</p>
+        <p class="timeline__meta">Срок: сразу</p>
+      </div>
+    </article>
+
+    <!-- 2 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8"/><path d="M16 17H8"/><path d="M10 9H8"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Документы</h3>
+        <p>Мед. свидетельство, справка о смерти, гербовое свидетельство (ЗАГС).</p>
+        <p class="timeline__meta">Срок: 1 день</p>
+      </div>
+    </article>
+
+    <!-- 3 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Формат и дата</h3>
+        <p>Светская/религиозная церемония, площадка, бюджет.</p>
+        <p class="timeline__meta">Опции: ведущий, речи, фото</p>
+      </div>
+    </article>
+
+    <!-- 4 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 22l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Подготовка и атрибутика</h3>
+        <p>Хранение, подготовка, гроб/урна, текстиль, венки, табличка.</p>
+        <p class="timeline__meta">Опции: декор, живые цветы</p>
+      </div>
+    </article>
+
+    <!-- 5 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M10 17h4V5H3v12h2"/><path d="M17 17h2l3-5V9h-5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="17.5" cy="17.5" r="2.5"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Логистика</h3>
+        <p>Зал, катафалк, транспорт для близких, слоты кладбища/крематория.</p>
+        <p class="timeline__meta">Опции: музыка, фото/видео</p>
+      </div>
+    </article>
+
+    <!-- 6 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polygon points="16 8 12 14 8 16 10 12 16 8"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Церемония</h3>
+        <p>Сценарий, тайминг, носильщики, порядок выступлений.</p>
+        <p class="timeline__meta">Опции: ритуалы, символы</p>
+      </div>
+    </article>
+
+    <!-- 7 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 12 12 17 22 12"/><polyline points="2 17 12 22 22 17"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Погребение/кремация</h3>
+        <p>Сопровождение на кладбище или в крематории, по регламенту.</p>
+        <p class="timeline__meta">Опции: колумбарий, урна</p>
+      </div>
+    </article>
+
+    <!-- 8 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">Завершение</h3>
+        <p>Передаём документы/вещи, закрываем договор, при необходимости — поминки.</p>
+        <p class="timeline__meta">Срок: в день церемонии/на следующий</p>
+      </div>
+    </article>
+
+    <!-- 9 -->
+    <article class="timeline__item reveal" role="listitem" data-animate>
+      <div class="timeline__icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 13 19 21 12 17 5 21 7 13 2 9 9 9 12 2"/></svg>
+      </div>
+      <div>
+        <h3 class="timeline__title">После</h3>
+        <p>Памятник/ограда, уход, консультации по выплатам, напоминания о датах.</p>
+        <p class="timeline__meta">Опции: ежегодный уход</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+  <div class="grid">
+    <article class="card">
+      <h3>1. Оперативная помощь и документы</h3>
+      <ul class="list">
+        <li><strong>Мы:</strong> координатор 24/7, оформление мед. и гербовых документов.</li>
+        <li><strong>Вы:</strong> базовая информация, паспорта (если есть).</li>
+        <li><small>Сроки:</small> сразу / 1 день • <small>Опции:</small> удалённое оформление, курьер.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>2. Подготовка и организация прощания</h3>
+      <ul class="list">
+        <li><strong>Мы:</strong> формат, дата и место; зал, транспорт; подготовка; гроб/урна, текстиль, цветы.</li>
+        <li><strong>Вы:</strong> подтверждение формата и пожеланий, личные вещи (по желанию).</li>
+        <li><small>Сроки:</small> 1–2 дня • <small>Опции:</small> декор, музыка, фото/видео, ведущий.</li>
+      </ul>
+    </article>
+    <article class="card">
+      <h3>3. Церемония и завершение</h3>
+      <ul class="list">
+        <li><strong>Мы:</strong> сценарий, тайминг, сопровождение на кладбище/в крематории; передача документов.</li>
+        <li><strong>Вы:</strong> присутствие, при желании — речи/фото.</li>
+        <li><small>После:</small> памятник, уход, консультации по выплатам • <small>Опции:</small> колумбарий, поминки.</li>
+      </ul>
+    </article>
+  </div>
+</section>
 
     <!-- HERO -->
     <section id="home" class="container hero" data-animate>
@@ -402,6 +592,7 @@
     <!-- PACKAGES -->
     <section id="packages" class="container" data-animate>
       <h2>Пакеты услуг</h2>
+      <a href="#roadmap-3">Как это проходит</a>
       <p class="sub">Три уровня, различающиеся оформлением и деталями церемонии.</p>
       <div class="grid" role="list">
         <article class="card" role="listitem" aria-labelledby="pkg-eco">
@@ -739,7 +930,45 @@
     });
 
   })();
+    // === Minimal Analytics ===
+window.dataLayer = window.dataLayer || [];
+function track(event, payload = {}) {
+  const data = { event, ts: Date.now(), ...payload };
+  window.dataLayer.push(data);
+  if (window.location.hostname.includes('localhost')) console.log('[track]', data);
+}
+
+// Меню и CTA
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', ()=> track('nav_click', { target: a.getAttribute('href') }));
+});
+
+// Пакеты (если есть кнопки — трекаем; иначе трекаем заголовки)
+document.querySelectorAll('#packages .card h3').forEach(h=>{
+  h.addEventListener('click', ()=> track('pkg_view', { pkg: h.textContent.trim() }));
+});
+
+// Конструктор: добавление/удаление
+document.addEventListener('click', (e)=>{
+  const btn = e.target.closest('.svc__btn');
+  if(!btn) return;
+  const row = btn.closest('.svc');
+  const name = row?.querySelector('span')?.textContent?.trim();
+  track(btn.textContent.includes('Добавить') ? 'builder_add' : 'builder_remove', { name });
+});
+
+// Sticky-итог (оформление)
+const ctaToForm = document.getElementById('ctaToForm');
+if (ctaToForm) ctaToForm.addEventListener('click', ()=> track('builder_cta_form', { sum: document.getElementById('totalPriceSticky')?.textContent }));
+
+// Отправка формы
+const leadFormEl = document.getElementById('leadForm');
+if (leadFormEl) {
+  leadFormEl.addEventListener('submit', ()=> track('lead_submit'));
+}
+
   </script>
 </body>
 </html>
+
 
